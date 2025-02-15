@@ -1,7 +1,7 @@
 # Adventure Time
 
 <p align="center">
-  <img width="250" height="250" src="https://i.postimg.cc/nL4zh2t9/ADVENTURE-TIME.png">
+  <img width="350" height="350" src="https://i.postimg.cc/nL4zh2t9/ADVENTURE-TIME.png">
 </p>
 
 Добро пожаловать в Adventure Time! Это приложение разработано, чтобы помочь вам планировать и организовывать путешествия с легкостью. Будь то короткая поездка на выходные или месячное приключение, наше приложение предоставит вам все необходимое для того, чтобы ваше путешествие прошло гладко и приятно.
