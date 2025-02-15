@@ -50,7 +50,7 @@ Cкоро :)
 
 Если у вас есть вопросы или предложения, не стесняйтесь обращаться к нам:
 
-- GitHub: [your-username](https://github.com/Chawotto)
+- GitHub: [Chawotto](https://github.com/Chawotto)
 
 ---
 
