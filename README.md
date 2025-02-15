@@ -1,6 +1,6 @@
 # Adventure Time
 
-[![Adventure Time Logo](https://i.postimg.cc/nL4zh2t9/ADVENTURE-TIME.png)](https://postimg.cc/2q5mH4yC)
+                                                [![Adventure Time Logo](https://i.postimg.cc/nL4zh2t9/ADVENTURE-TIME.png)](https://postimg.cc/2q5mH4yC)
 
 Добро пожаловать в Adventure Time! Это приложение разработано, чтобы помочь вам планировать и организовывать путешествия с легкостью. Будь то короткая поездка на выходные или месячное приключение, наше приложение предоставит вам все необходимое для того, чтобы ваше путешествие прошло гладко и приятно.
 
