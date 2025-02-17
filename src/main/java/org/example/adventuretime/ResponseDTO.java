@@ -1,17 +1,15 @@
 package org.example.adventuretime;
 
-public class ResponseDTO {
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class ResponseDto {
     private String message;
 
-    public ResponseDTO(String message) {
+    public ResponseDto(String message) {
         this.message = message;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

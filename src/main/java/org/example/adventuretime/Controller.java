@@ -1,15 +1,13 @@
 package org.example.adventuretime;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -17,11 +15,14 @@ public class Controller {
 
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
-    @Autowired
-    private CountryRepository countryRepository;
+    private final CountryRepository countryRepository;
 
-    @Autowired
-    private TourRepository tourRepository;
+    private final TourRepository tourRepository;
+
+    public Controller(CountryRepository countryRepository, TourRepository tourRepository) {
+        this.countryRepository = countryRepository;
+        this.tourRepository = tourRepository;
+    }
 
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
@@ -47,7 +48,8 @@ public class Controller {
     }
 
     @PostMapping("/countries-with-tours")
-    public ResponseEntity<Country> createCountryWithTours(@RequestBody Country country, @RequestParam List<Long> tourIds) {
+    public ResponseEntity<Country> createCountryWithTours(@RequestBody Country country,
+                                                          @RequestParam List<Long> tourIds) {
         List<Tour> tours = tourRepository.findAllById(tourIds);
         country.setTours(new HashSet<>(tours));
         Country savedCountry = countryRepository.save(country);
@@ -55,7 +57,8 @@ public class Controller {
     }
 
     @PutMapping("/countries/{id}")
-    public ResponseEntity<Country> updateCountry(@PathVariable Long id, @RequestBody Country countryDetails) {
+    public ResponseEntity<Country> updateCountry(@PathVariable Long id,
+                                                 @RequestBody Country countryDetails) {
         Country country = countryRepository.findById(id).orElseThrow();
         country.setName(countryDetails.getName());
         country.setAvailable(countryDetails.isAvailable());
@@ -71,7 +74,8 @@ public class Controller {
 
     @PostMapping("/countries/{countryId}/tours/{tourId}")
     @Transactional
-    public ResponseEntity<Void> addTourToCountry(@PathVariable Long countryId, @PathVariable Long tourId) {
+    public ResponseEntity<Void> addTourToCountry(@PathVariable Long countryId,
+                                                 @PathVariable Long tourId) {
         Country country = countryRepository.findById(countryId).orElseThrow();
         Tour tour = tourRepository.findById(tourId).orElseThrow();
         country.getTours().add(tour);
@@ -84,7 +88,8 @@ public class Controller {
 
     @DeleteMapping("/countries/{countryId}/tours/{tourId}")
     @Transactional
-    public ResponseEntity<Void> removeTourFromCountry(@PathVariable Long countryId, @PathVariable Long tourId) {
+    public ResponseEntity<Void> removeTourFromCountry(@PathVariable Long countryId,
+                                                      @PathVariable Long tourId) {
         Country country = countryRepository.findById(countryId).orElseThrow();
         Tour tour = tourRepository.findById(tourId).orElseThrow();
         country.getTours().remove(tour);
@@ -133,28 +138,28 @@ public class Controller {
     }
 
     @GetMapping("/query")
-    public ResponseDTO getQueryParams(@RequestParam String country) {
+    public ResponseDto getQueryParams(@RequestParam String country) {
         Country availableCountry = countryRepository.findByName(country);
         if (availableCountry != null) {
             if (availableCountry.isAvailable()) {
-                return new ResponseDTO("Country " + country + " is available.");
+                return new ResponseDto("Country " + country + " is available.");
             } else {
-                return new ResponseDTO("Country " + country + " is not available.");
+                return new ResponseDto("Country " + country + " is not available.");
             }
         }
-        return new ResponseDTO("Country " + country + " is not found.");
+        return new ResponseDto("Country " + country + " is not found.");
     }
 
     @GetMapping("/path/{country}")
-    public ResponseDTO getPathParams(@PathVariable String country) {
+    public ResponseDto getPathParams(@PathVariable String country) {
         Country availableCountry = countryRepository.findByName(country);
         if (availableCountry != null) {
             if (availableCountry.isAvailable()) {
-                return new ResponseDTO("Country " + country + " is available.");
+                return new ResponseDto("Country " + country + " is available.");
             } else {
-                return new ResponseDTO("Country " + country + " is not available.");
+                return new ResponseDto("Country " + country + " is not available.");
             }
         }
-        return new ResponseDTO("Country " + country + " is not found.");
+        return new ResponseDto("Country " + country + " is not found.");
     }
 }
