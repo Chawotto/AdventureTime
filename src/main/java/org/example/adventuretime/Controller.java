@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
 
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
+    private static final String COUNTRY_PREFIX = "Country ";
 
     private final CountryRepository countryRepository;
-
     private final TourRepository tourRepository;
 
     public Controller(CountryRepository countryRepository, TourRepository tourRepository) {
@@ -141,25 +141,20 @@ public class Controller {
     public ResponseDto getQueryParams(@RequestParam String country) {
         Country availableCountry = countryRepository.findByName(country);
         if (availableCountry != null) {
-            if (availableCountry.isAvailable()) {
-                return new ResponseDto("Country " + country + " is available.");
-            } else {
-                return new ResponseDto("Country " + country + " is not available.");
-            }
+            String availability = availableCountry.isAvailable() ? "is available." :
+                    "is not available.";
+            return new ResponseDto(COUNTRY_PREFIX + country + " " + availability);
         }
-        return new ResponseDto("Country " + country + " is not found.");
+        return new ResponseDto(COUNTRY_PREFIX + country + " is not found.");
     }
 
     @GetMapping("/path/{country}")
     public ResponseDto getPathParams(@PathVariable String country) {
         Country availableCountry = countryRepository.findByName(country);
         if (availableCountry != null) {
-            if (availableCountry.isAvailable()) {
-                return new ResponseDto("Country " + country + " is available.");
-            } else {
-                return new ResponseDto("Country " + country + " is not available.");
-            }
+            String status = availableCountry.isAvailable() ? "available" : "not available";
+            return new ResponseDto(String.format("The country %s is %s.", country, status));
         }
-        return new ResponseDto("Country " + country + " is not found.");
+        return new ResponseDto(String.format("The country %s is not found.", country));
     }
 }
