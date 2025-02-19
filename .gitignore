@@ -15,8 +15,8 @@ bower_components/
 
 # IDEs and editors
 .idea/
-target/classes/
-*target/*
+target/
+
 # misc
 .sass-cache/
 connect.lock/
