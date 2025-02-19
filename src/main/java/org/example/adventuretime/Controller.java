@@ -3,13 +3,22 @@ package org.example.adventuretime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import org.example.adventuretime.country.Country;
 import org.example.adventuretime.dao.CountryDao;
 import org.example.adventuretime.dao.TourDao;
+import org.example.adventuretime.tour.Tour;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
@@ -141,12 +150,18 @@ public class Controller {
 
     @GetMapping("/query")
     public ResponseDto getQueryParams(@RequestParam String country) {
-        Optional<Country> availableCountry = countryDao.findByName(country);
-        if (availableCountry.isPresent()) {
-            String availability = availableCountry.get().isAvailable() ? "is available." :
-                    "is not available.";
-            return new ResponseDto("Country " + country + " " + availability);
+        String searchPattern = country + "%";
+        List<Country> availableCountries = countryDao.findByNameLike(searchPattern);
+
+        if (!availableCountries.isEmpty()) {
+            StringBuilder responseMessage = new StringBuilder("Countries found: ");
+            for (Country c : availableCountries) {
+                String availability = c.isAvailable() ? "is available." : "is not available.";
+                responseMessage.append(c.getName()).append(" ").append(availability).append(" ");
+            }
+            return new ResponseDto(responseMessage.toString());
         }
+
         return new ResponseDto("Country " + country + " is not found.");
     }
 

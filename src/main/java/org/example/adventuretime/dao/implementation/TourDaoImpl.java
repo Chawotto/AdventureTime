@@ -1,9 +1,10 @@
-package org.example.adventuretime.dao;
+package org.example.adventuretime.dao.implementation;
 
 import java.util.List;
 import java.util.Optional;
-import org.example.adventuretime.Tour;
-import org.example.adventuretime.TourRepository;
+import org.example.adventuretime.dao.TourDao;
+import org.example.adventuretime.tour.Tour;
+import org.example.adventuretime.tour.TourRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

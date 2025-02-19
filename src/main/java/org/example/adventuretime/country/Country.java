@@ -1,12 +1,19 @@
-package org.example.adventuretime;
+package org.example.adventuretime.country;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.adventuretime.tour.Tour;
 
 @Setter
 @Getter
@@ -23,12 +30,5 @@ public class Country {
     @ManyToMany(mappedBy = "countries", cascade = {CascadeType.PERSIST,
             CascadeType.MERGE}, fetch = FetchType.LAZY)
     private Set<Tour> tours = new HashSet<>();
-
-    public Country() {}
-
-    public Country(String name, boolean available) {
-        this.name = name;
-        this.available = available;
-    }
 
 }

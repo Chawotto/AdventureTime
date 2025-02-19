@@ -1,13 +1,21 @@
-package org.example.adventuretime;
+package org.example.adventuretime.tour;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
-
+import org.example.adventuretime.country.Country;
 
 @Setter
 @Getter
@@ -26,11 +34,5 @@ public class Tour {
             inverseJoinColumns = @JoinColumn(name = "country_id")
     )
     private Set<Country> countries = new HashSet<>();
-
-    public Tour() {}
-
-    public Tour(String name) {
-        this.name = name;
-    }
 
 }

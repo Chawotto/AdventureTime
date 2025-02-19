@@ -2,7 +2,7 @@ package org.example.adventuretime.dao;
 
 import java.util.List;
 import java.util.Optional;
-import org.example.adventuretime.Tour;
+import org.example.adventuretime.tour.Tour;
 
 public interface TourDao {
     List<Tour> findAll();
