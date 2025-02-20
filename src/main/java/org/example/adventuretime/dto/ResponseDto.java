@@ -1,4 +1,4 @@
-package org.example.adventuretime;
+package org.example.adventuretime.dto;
 
 import lombok.Getter;
 import lombok.Setter;

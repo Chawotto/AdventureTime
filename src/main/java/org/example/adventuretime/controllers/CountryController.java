@@ -1,8 +1,9 @@
-package org.example.adventuretime;
+package org.example.adventuretime.controllers;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import org.example.adventuretime.dto.ResponseDto;
 import org.example.adventuretime.country.Country;
 import org.example.adventuretime.dao.CountryDao;
 import org.example.adventuretime.dao.TourDao;
@@ -21,14 +22,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+public class CountryController {
 
-    private static final Logger logger = LoggerFactory.getLogger(Controller.class);
+    private static final Logger logger = LoggerFactory.getLogger(CountryController.class);
 
     private final CountryDao countryDao;
     private final TourDao tourDao;
 
-    public Controller(CountryDao countryDao, TourDao tourDao) {
+    public CountryController(CountryDao countryDao, TourDao tourDao) {
         this.countryDao = countryDao;
         this.tourDao = tourDao;
     }
@@ -109,43 +110,6 @@ public class Controller {
         tourDao.save(tour);
         logger.info("Tour removed from country: Tour ID = {}, Country ID = {}", tourId, countryId);
         return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/tours")
-    public List<Tour> getAllTours() {
-        return tourDao.findAll();
-    }
-
-    @GetMapping("/tours/{id}")
-    public ResponseEntity<Tour> getTourById(@PathVariable Long id) {
-        Optional<Tour> tour = tourDao.findById(id);
-        if (tour.isPresent()) {
-            logger.info("Tour found: {}", tour.get());
-            return ResponseEntity.ok(tour.get());
-        } else {
-            logger.warn("Tour not found for id: {}", id);
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @PostMapping("/tours")
-    public ResponseEntity<Tour> createTour(@RequestBody Tour tour) {
-        Tour savedTour = tourDao.save(tour);
-        return ResponseEntity.ok(savedTour);
-    }
-
-    @PutMapping("/tours/{id}")
-    public ResponseEntity<Tour> updateTour(@PathVariable Long id, @RequestBody Tour tourDetails) {
-        Tour tour = tourDao.findById(id).orElseThrow();
-        tour.setName(tourDetails.getName());
-        Tour updatedTour = tourDao.save(tour);
-        return ResponseEntity.ok(updatedTour);
-    }
-
-    @DeleteMapping("/tours/{id}")
-    public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
-        tourDao.deleteById(id);
-        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/query")
