@@ -3,10 +3,10 @@ package org.example.adventuretime.controllers;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import org.example.adventuretime.dto.ResponseDto;
 import org.example.adventuretime.country.Country;
 import org.example.adventuretime.dao.CountryDao;
 import org.example.adventuretime.dao.TourDao;
+import org.example.adventuretime.dto.ResponseDto;
 import org.example.adventuretime.tour.Tour;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -129,13 +129,14 @@ public class CountryController {
         return new ResponseDto("Country " + country + " is not found.");
     }
 
-    @GetMapping("/path/{country}")
-    public ResponseDto getPathParams(@PathVariable String country) {
-        Optional<Country> availableCountry = countryDao.findByName(country);
+    @GetMapping("/path/{id}")
+    public ResponseDto getPathParams(@PathVariable Long id) {
+        Optional<Country> availableCountry = countryDao.findById(id);
         if (availableCountry.isPresent()) {
             String status = availableCountry.get().isAvailable() ? "available" : "not available";
-            return new ResponseDto(String.format("The country %s is %s.", country, status));
+            String countryName = availableCountry.get().getName();
+            return new ResponseDto(String.format("The country %s is %s.", countryName, status));
         }
-        return new ResponseDto(String.format("The country %s is not found.", country));
+        return new ResponseDto(String.format("The country with ID %d is not found.", id));
     }
 }
