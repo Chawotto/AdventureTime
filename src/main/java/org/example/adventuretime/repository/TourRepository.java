@@ -1,5 +1,6 @@
-package org.example.adventuretime.tour;
+package org.example.adventuretime.repository;
 
+import org.example.adventuretime.model.Tour;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

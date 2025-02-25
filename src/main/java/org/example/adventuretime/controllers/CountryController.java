@@ -3,11 +3,11 @@ package org.example.adventuretime.controllers;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import org.example.adventuretime.country.Country;
-import org.example.adventuretime.dao.CountryDao;
-import org.example.adventuretime.dao.TourDao;
 import org.example.adventuretime.dto.ResponseDto;
-import org.example.adventuretime.tour.Tour;
+import org.example.adventuretime.model.Country;
+import org.example.adventuretime.model.Tour;
+import org.example.adventuretime.service.CountryService;
+import org.example.adventuretime.service.TourService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -26,22 +26,22 @@ public class CountryController {
 
     private static final Logger logger = LoggerFactory.getLogger(CountryController.class);
 
-    private final CountryDao countryDao;
-    private final TourDao tourDao;
+    private final CountryService countryService;
+    private final TourService tourService;
 
-    public CountryController(CountryDao countryDao, TourDao tourDao) {
-        this.countryDao = countryDao;
-        this.tourDao = tourDao;
+    public CountryController(CountryService countryService, TourService tourService) {
+        this.countryService = countryService;
+        this.tourService = tourService;
     }
 
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
-        return countryDao.findAll();
+        return countryService.findAll();
     }
 
     @GetMapping("/countries/{id}")
     public ResponseEntity<Country> getCountryById(@PathVariable Long id) {
-        Optional<Country> country = countryDao.findById(id);
+        Optional<Country> country = countryService.findById(id);
         if (country.isPresent()) {
             logger.info("Country found: {}", country.get());
             return ResponseEntity.ok(country.get());
@@ -53,34 +53,34 @@ public class CountryController {
 
     @PostMapping("/countries")
     public ResponseEntity<Country> createCountry(@RequestBody Country country) {
-        Country savedCountry = countryDao.save(country);
+        Country savedCountry = countryService.save(country);
         return ResponseEntity.ok(savedCountry);
     }
 
     @PostMapping("/countries-with-tours")
     public ResponseEntity<Country> createCountryWithTours(@RequestBody Country country,
                                                           @RequestParam List<Long> tourIds) {
-        List<Tour> tours = tourDao.findAll().stream()
+        List<Tour> tours = tourService.findAll().stream()
                 .filter(tour -> tourIds.contains(tour.getId()))
                 .toList();
         country.setTours(new HashSet<>(tours));
-        Country savedCountry = countryDao.save(country);
+        Country savedCountry = countryService.save(country);
         return ResponseEntity.ok(savedCountry);
     }
 
     @PutMapping("/countries/{id}")
     public ResponseEntity<Country> updateCountry(@PathVariable Long id,
                                                  @RequestBody Country countryDetails) {
-        Country country = countryDao.findById(id).orElseThrow();
+        Country country = countryService.findById(id).orElseThrow();
         country.setName(countryDetails.getName());
         country.setAvailable(countryDetails.isAvailable());
-        Country updatedCountry = countryDao.save(country);
+        Country updatedCountry = countryService.save(country);
         return ResponseEntity.ok(updatedCountry);
     }
 
     @DeleteMapping("/countries/{id}")
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
-        countryDao.deleteById(id);
+        countryService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
@@ -88,12 +88,12 @@ public class CountryController {
     @Transactional
     public ResponseEntity<Void> addTourToCountry(@PathVariable Long countryId,
                                                  @PathVariable Long tourId) {
-        Country country = countryDao.findById(countryId).orElseThrow();
-        Tour tour = tourDao.findById(tourId).orElseThrow();
+        Country country = countryService.findById(countryId).orElseThrow();
+        Tour tour = tourService.findById(tourId).orElseThrow();
         country.getTours().add(tour);
         tour.getCountries().add(country);
-        countryDao.save(country);
-        tourDao.save(tour);
+        countryService.save(country);
+        tourService.save(tour);
         logger.info("Tour added to country: Tour ID = {}, Country ID = {}", tourId, countryId);
         return ResponseEntity.ok().build();
     }
@@ -102,12 +102,12 @@ public class CountryController {
     @Transactional
     public ResponseEntity<Void> removeTourFromCountry(@PathVariable Long countryId,
                                                       @PathVariable Long tourId) {
-        Country country = countryDao.findById(countryId).orElseThrow();
-        Tour tour = tourDao.findById(tourId).orElseThrow();
+        Country country = countryService.findById(countryId).orElseThrow();
+        Tour tour = tourService.findById(tourId).orElseThrow();
         country.getTours().remove(tour);
         tour.getCountries().remove(country);
-        countryDao.save(country);
-        tourDao.save(tour);
+        countryService.save(country);
+        tourService.save(tour);
         logger.info("Tour removed from country: Tour ID = {}, Country ID = {}", tourId, countryId);
         return ResponseEntity.ok().build();
     }
@@ -115,7 +115,7 @@ public class CountryController {
     @GetMapping("/query")
     public ResponseDto getQueryParams(@RequestParam String country) {
         String searchPattern = country + "%";
-        List<Country> availableCountries = countryDao.findByNameLike(searchPattern);
+        List<Country> availableCountries = countryService.findByNameLike(searchPattern);
 
         if (!availableCountries.isEmpty()) {
             StringBuilder responseMessage = new StringBuilder("Countries found: ");
@@ -131,7 +131,7 @@ public class CountryController {
 
     @GetMapping("/path/{id}")
     public ResponseDto getPathParams(@PathVariable Long id) {
-        Optional<Country> availableCountry = countryDao.findById(id);
+        Optional<Country> availableCountry = countryService.findById(id);
         if (availableCountry.isPresent()) {
             String status = availableCountry.get().isAvailable() ? "available" : "not available";
             String countryName = availableCountry.get().getName();

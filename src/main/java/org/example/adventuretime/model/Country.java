@@ -1,4 +1,4 @@
-package org.example.adventuretime.country;
+package org.example.adventuretime.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.adventuretime.tour.Tour;
 
 @Setter
 @Getter
