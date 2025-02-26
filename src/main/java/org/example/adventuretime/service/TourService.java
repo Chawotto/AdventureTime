@@ -2,32 +2,47 @@ package org.example.adventuretime.service;
 
 import java.util.List;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
+import org.example.adventuretime.dto.TourDto;
+import org.example.adventuretime.mapper.TourMapper;
 import org.example.adventuretime.model.Tour;
 import org.example.adventuretime.repository.TourRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Repository
+@Service
+@RequiredArgsConstructor
 public class TourService {
 
     private final TourRepository tourRepository;
 
-    public TourService(TourRepository tourRepository) {
-        this.tourRepository = tourRepository;
+    public List<TourDto> findAll() {
+        return tourRepository.findAll().stream()
+                .map(TourMapper::toDto)
+                .toList();
     }
 
-    public List<Tour> findAll() {
-        return tourRepository.findAll();
+    public Optional<TourDto> findById(Long id) {
+        return tourRepository.findById(id)
+                .map(TourMapper::toDto);
     }
 
-    public Optional<Tour> findById(Long id) {
-        return tourRepository.findById(id);
-    }
-
-    public Tour save(Tour tour) {
-        return tourRepository.save(tour);
+    public TourDto save(TourDto tourDto) {
+        Tour tour = TourMapper.toEntity(tourDto);
+        Tour saved = tourRepository.save(tour);
+        return TourMapper.toDto(saved);
     }
 
     public void deleteById(Long id) {
         tourRepository.deleteById(id);
+    }
+
+    @Transactional
+    public TourDto updateTour(Long id, TourDto tourDto) {
+        Tour tour = tourRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tour not found"));
+        tour.setName(tourDto.getName());
+        Tour updated = tourRepository.save(tour);
+        return TourMapper.toDto(updated);
     }
 }

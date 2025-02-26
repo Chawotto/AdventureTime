@@ -25,9 +25,7 @@ public class Country {
     private String name;
     private boolean available;
 
-    @SuppressWarnings("checkstyle:Indentation")
-    @ManyToMany(mappedBy = "countries", cascade = {CascadeType.PERSIST,
-            CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "countries", cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            fetch = FetchType.LAZY)
     private Set<Tour> tours = new HashSet<>();
-
 }

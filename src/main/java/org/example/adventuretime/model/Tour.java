@@ -33,5 +33,4 @@ public class Tour {
             inverseJoinColumns = @JoinColumn(name = "country_id")
     )
     private Set<Country> countries = new HashSet<>();
-
 }

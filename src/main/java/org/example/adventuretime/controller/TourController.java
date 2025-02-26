@@ -1,8 +1,8 @@
-package org.example.adventuretime.controllers;
+package org.example.adventuretime.controller;
 
 import java.util.List;
 import java.util.Optional;
-import org.example.adventuretime.model.Tour;
+import org.example.adventuretime.dto.TourDto;
 import org.example.adventuretime.service.TourService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,13 +27,13 @@ public class TourController {
     }
 
     @GetMapping("/tours")
-    public List<Tour> getAllTours() {
+    public List<TourDto> getAllTours() {
         return tourService.findAll();
     }
 
     @GetMapping("/tours/{id}")
-    public ResponseEntity<Tour> getTourById(@PathVariable Long id) {
-        Optional<Tour> tour = tourService.findById(id);
+    public ResponseEntity<TourDto> getTourById(@PathVariable Long id) {
+        Optional<TourDto> tour = tourService.findById(id);
         if (tour.isPresent()) {
             logger.info("Tour found: {}", tour.get());
             return ResponseEntity.ok(tour.get());
@@ -44,16 +44,14 @@ public class TourController {
     }
 
     @PostMapping("/tours")
-    public ResponseEntity<Tour> createTour(@RequestBody Tour tour) {
-        Tour savedTour = tourService.save(tour);
+    public ResponseEntity<TourDto> createTour(@RequestBody TourDto tourDto) {
+        TourDto savedTour = tourService.save(tourDto);
         return ResponseEntity.ok(savedTour);
     }
 
     @PutMapping("/tours/{id}")
-    public ResponseEntity<Tour> updateTour(@PathVariable Long id, @RequestBody Tour tourDetails) {
-        Tour tour = tourService.findById(id).orElseThrow();
-        tour.setName(tourDetails.getName());
-        Tour updatedTour = tourService.save(tour);
+    public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
+        TourDto updatedTour = tourService.updateTour(id, tourDto);
         return ResponseEntity.ok(updatedTour);
     }
 
