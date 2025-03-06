@@ -1,5 +1,6 @@
 package org.example.adventuretime.controller;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.example.adventuretime.dto.TourDto;
@@ -59,5 +60,22 @@ public class TourController {
     public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
         tourService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/tours/{tourId}/transport/{transportId}")
+    @Transactional
+    public ResponseEntity<TourDto> addTransportToTour(@PathVariable Long tourId,
+                                                      @PathVariable Long transportId) {
+        TourDto updatedTour = tourService.addOrUpdateTransportInTour(tourId, transportId);
+        logger.info("Transport with id {} set to tour with id {}", transportId, tourId);
+        return ResponseEntity.ok(updatedTour);
+    }
+
+    @DeleteMapping("/tours/{tourId}/transport")
+    @Transactional
+    public ResponseEntity<TourDto> removeTransportFromTour(@PathVariable Long tourId) {
+        TourDto updatedTour = tourService.removeTransportFromTour(tourId);
+        logger.info("Transport removed from tour with id {}", tourId);
+        return ResponseEntity.ok(updatedTour);
     }
 }

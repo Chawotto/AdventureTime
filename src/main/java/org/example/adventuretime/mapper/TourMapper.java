@@ -18,6 +18,9 @@ public class TourMapper {
                     .map(CountryMapper::toDtoShallow)
                     .collect(Collectors.toSet()));
         }
+        if (tour.getTransport() != null) {
+            dto.setTransport(TransportMapper.toDto(tour.getTransport()));
+        }
         return dto;
     }
 
@@ -31,10 +34,12 @@ public class TourMapper {
 
     public Tour toEntity(TourDto dto) {
         if (dto == null) return null;
-
         Tour tour = new Tour();
         tour.setId(dto.getId());
         tour.setName(dto.getName());
+        if (dto.getTransport() != null) {
+            tour.setTransport(TransportMapper.toEntity(dto.getTransport()));
+        }
         return tour;
     }
 }

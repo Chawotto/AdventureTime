@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.Getter;
@@ -33,4 +34,8 @@ public class Tour {
             inverseJoinColumns = @JoinColumn(name = "country_id")
     )
     private Set<Country> countries = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "transport_id")
+    private Transport transport;
 }
