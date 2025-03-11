@@ -18,4 +18,6 @@ public class Transport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private Integer capacity;
+    private Double cost;
 }

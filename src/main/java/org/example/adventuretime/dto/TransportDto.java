@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class TransportDto {
     private Long id;
     private String name;
+    private Integer capacity;
+    private Double cost;
 }

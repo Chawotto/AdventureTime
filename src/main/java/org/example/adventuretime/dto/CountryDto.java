@@ -12,5 +12,8 @@ public class CountryDto {
     private Long id;
     private String name;
     private boolean available;
+    private String attractions;
+    private Double visaCost;
+    private String nationalLanguages;
     private Set<TourDto> tours;
 }

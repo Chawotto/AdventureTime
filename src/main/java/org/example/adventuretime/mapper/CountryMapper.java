@@ -14,6 +14,9 @@ public class CountryMapper {
         dto.setId(country.getId());
         dto.setName(country.getName());
         dto.setAvailable(country.isAvailable());
+        dto.setAttractions(country.getAttractions());
+        dto.setVisaCost(country.getVisaCost());
+        dto.setNationalLanguages(country.getNationalLanguages());
         if (country.getTours() != null) {
             dto.setTours(country.getTours().stream()
                     .map(TourMapper::toDtoShallow)
@@ -27,6 +30,9 @@ public class CountryMapper {
         CountryDto dto = new CountryDto();
         dto.setId(country.getId());
         dto.setName(country.getName());
+        dto.setAttractions(country.getAttractions());
+        dto.setVisaCost(country.getVisaCost());
+        dto.setNationalLanguages(country.getNationalLanguages());
         dto.setAvailable(country.isAvailable());
         return dto;
     }
@@ -37,6 +43,9 @@ public class CountryMapper {
         country.setId(dto.getId());
         country.setName(dto.getName());
         country.setAvailable(dto.isAvailable());
+        country.setAttractions(dto.getAttractions());
+        country.setVisaCost(dto.getVisaCost());
+        country.setNationalLanguages(dto.getNationalLanguages());
         return country;
     }
 }

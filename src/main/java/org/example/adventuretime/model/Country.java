@@ -24,6 +24,9 @@ public class Country {
     private Long id;
     private String name;
     private boolean available;
+    private String attractions;
+    private Double visaCost;
+    private String nationalLanguages;
 
     @ManyToMany(mappedBy = "countries", cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             fetch = FetchType.LAZY)

@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 public class TourDto {
     private Long id;
     private String name;
+    private String description;
+    private Integer durationDays;
     private Set<CountryDto> countries;
     private TransportDto transport;
 }

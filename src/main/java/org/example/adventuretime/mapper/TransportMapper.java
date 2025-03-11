@@ -12,6 +12,8 @@ public class TransportMapper {
         TransportDto dto = new TransportDto();
         dto.setId(transport.getId());
         dto.setName(transport.getName());
+        dto.setCapacity(transport.getCapacity());
+        dto.setCost(transport.getCost());
         return dto;
     }
 
@@ -20,6 +22,8 @@ public class TransportMapper {
         Transport transport = new Transport();
         transport.setId(dto.getId());
         transport.setName(dto.getName());
+        transport.setCapacity(dto.getCapacity());
+        transport.setCost(dto.getCost());
         return transport;
     }
 }

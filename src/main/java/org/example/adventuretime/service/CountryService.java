@@ -50,8 +50,19 @@ public class CountryService {
         return CountryMapper.toDto(saved);
     }
 
-    public void deleteById(Long id) {
-        countryRepository.deleteById(id);
+    @Transactional
+    public void deleteCountry(Long countryId) {
+        Optional<Country> countryOpt = countryRepository.findById(countryId);
+        if (countryOpt.isPresent()) {
+            Country country = countryOpt.get();
+
+            for (Tour tour : country.getTours()) {
+                tour.getCountries().remove(country);
+                tourRepository.save(tour);
+            }
+
+            countryRepository.delete(country);
+        }
     }
 
     public List<CountryDto> findByNameLike(String namePattern) {

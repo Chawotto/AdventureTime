@@ -13,6 +13,8 @@ public class TourMapper {
         TourDto dto = new TourDto();
         dto.setId(tour.getId());
         dto.setName(tour.getName());
+        dto.setDescription(tour.getDescription());
+        dto.setDurationDays(tour.getDurationDays());
         if (tour.getCountries() != null) {
             dto.setCountries(tour.getCountries().stream()
                     .map(CountryMapper::toDtoShallow)
@@ -29,6 +31,9 @@ public class TourMapper {
         TourDto dto = new TourDto();
         dto.setId(tour.getId());
         dto.setName(tour.getName());
+        dto.setDescription(tour.getDescription());
+        dto.setDurationDays(tour.getDurationDays());
+        dto.setTransport(TransportMapper.toDto(tour.getTransport()));
         return dto;
     }
 
@@ -37,6 +42,8 @@ public class TourMapper {
         Tour tour = new Tour();
         tour.setId(dto.getId());
         tour.setName(dto.getName());
+        tour.setDescription(dto.getDescription());
+        tour.setDurationDays(dto.getDurationDays());
         if (dto.getTransport() != null) {
             tour.setTransport(TransportMapper.toEntity(dto.getTransport()));
         }
