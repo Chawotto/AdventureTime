@@ -9,6 +9,8 @@ import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.CountryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,7 @@ public class CountryController {
     }
 
     @GetMapping("/countries")
+    @Cacheable(value = "country")
     public List<CountryDto> getAllCountries() {
         return countryService.findAll();
     }
@@ -51,6 +54,7 @@ public class CountryController {
     }
 
     @PostMapping("/countries")
+    @CacheEvict(value = {"country", "tour"}, allEntries = true)
     public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto) {
         if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {
             throw new ValidationException(COUNTRY_NAME_REQUIRED);
@@ -69,31 +73,8 @@ public class CountryController {
         return ResponseEntity.ok(savedCountry);
     }
 
-    @PostMapping("/countries-with-tours")
-    public ResponseEntity<CountryDto> createCountryWithTours(@RequestBody CountryDto countryDto,
-                                                             @RequestParam List<Long> tourIds) {
-        if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {
-            throw new ValidationException(COUNTRY_NAME_REQUIRED);
-        }
-        if (tourIds == null || tourIds.isEmpty()) {
-            throw new ValidationException("At least one tour ID is required");
-        }
-        if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
-            throw new ValidationException(ATTRACTIONS);
-        }
-        if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
-            throw new ValidationException(
-                    VISA);
-        }
-        if (countryDto.getNationalLanguages()
-                == null || countryDto.getNationalLanguages().trim().isEmpty()) {
-            throw new ValidationException(LANGUAGES_ARE_REQUIRED);
-        }
-        CountryDto savedCountry = countryService.createCountryWithTours(countryDto, tourIds);
-        return ResponseEntity.ok(savedCountry);
-    }
-
     @PutMapping("/countries/{id}")
+    @CacheEvict(value = {"country", "tour"}, allEntries = true)
     public ResponseEntity<CountryDto> updateCountry(@PathVariable Long id,
                                                     @RequestBody CountryDto countryDto) {
         if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {
@@ -115,6 +96,7 @@ public class CountryController {
     }
 
     @DeleteMapping("/countries/{id}")
+    @CacheEvict(value = {"country", "tour"}, allEntries = true)
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
         countryService.deleteCountry(id);
         return ResponseEntity.noContent().build();
@@ -122,6 +104,7 @@ public class CountryController {
 
     @PostMapping("/countries/{countryId}/tours/{tourId}")
     @Transactional
+    @CacheEvict(value = {"country", "tour"}, allEntries = true)
     public ResponseEntity<CountryDto> addTourToCountry(@PathVariable Long countryId,
                                                        @PathVariable Long tourId) {
         CountryDto updatedCountry = countryService.addTourToCountry(countryId, tourId);
@@ -131,6 +114,7 @@ public class CountryController {
 
     @DeleteMapping("/countries/{countryId}/tours/{tourId}")
     @Transactional
+    @CacheEvict(value = {"country", "tour"}, allEntries = true)
     public ResponseEntity<CountryDto> removeTourFromCountry(@PathVariable Long countryId,
                                                             @PathVariable Long tourId) {
         CountryDto updatedCountry = countryService.removeTourFromCountry(countryId, tourId);

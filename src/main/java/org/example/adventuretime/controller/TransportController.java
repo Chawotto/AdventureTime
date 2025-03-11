@@ -7,6 +7,8 @@ import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.TransportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,7 @@ public class TransportController {
     }
 
     @GetMapping("/transport")
+    @Cacheable(value = "transport")
     public List<TransportDto> getAllTransports() {
         return transportService.findAll();
     }
@@ -44,6 +47,7 @@ public class TransportController {
     }
 
     @PostMapping("/transport")
+    @CacheEvict(value = {"transport"}, allEntries = true)
     public ResponseEntity<TransportDto> createTransport(@RequestBody TransportDto transportDto) {
         if (transportDto.getName() == null || transportDto.getName().isEmpty()) {
             throw new ValidationException("Transport name is required");
@@ -59,6 +63,7 @@ public class TransportController {
     }
 
     @PutMapping("/transport/{id}")
+    @CacheEvict(value = {"transport", "tour", "country"}, allEntries = true)
     public ResponseEntity<TransportDto> updateTransport(@PathVariable Long id,
                                                         @RequestBody TransportDto transportDto) {
         if (transportDto.getName() == null || transportDto.getName().isEmpty()) {
@@ -75,6 +80,7 @@ public class TransportController {
     }
 
     @DeleteMapping("/transport/{id}")
+    @CacheEvict(value = {"transport", "tour", "country"}, allEntries = true)
     public ResponseEntity<Void> deleteTransport(@PathVariable Long id) {
         transportService.deleteById(id);
         return ResponseEntity.noContent().build();

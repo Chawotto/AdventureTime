@@ -1,9 +1,7 @@
 package org.example.adventuretime.service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.example.adventuretime.dto.CountryDto;
 import org.example.adventuretime.mapper.CountryMapper;
@@ -36,16 +34,6 @@ public class CountryService {
 
     public CountryDto save(CountryDto countryDto) {
         Country country = CountryMapper.toEntity(countryDto);
-        Country saved = countryRepository.save(country);
-        return CountryMapper.toDto(saved);
-    }
-
-    @Transactional
-    public CountryDto createCountryWithTours(CountryDto countryDto, List<Long> tourIds) {
-        Country country = CountryMapper.toEntity(countryDto);
-        Set<Tour> tours = new HashSet<>(tourRepository.findAllById(tourIds));
-        country.setTours(tours);
-        tours.forEach(tour -> tour.getCountries().add(country));
         Country saved = countryRepository.save(country);
         return CountryMapper.toDto(saved);
     }

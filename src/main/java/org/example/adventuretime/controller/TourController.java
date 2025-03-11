@@ -49,7 +49,7 @@ public class TourController {
     }
 
     @PostMapping("/tours")
-    @CacheEvict(value = "tour", allEntries = true)
+    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<TourDto> createTour(@RequestBody TourDto tourDto) {
         if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
             throw new ValidationException("Tour name is required");
@@ -65,7 +65,7 @@ public class TourController {
     }
 
     @PutMapping("/tours/{id}")
-    @CacheEvict(value = "tour", allEntries = true)
+    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
         if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
             throw new ValidationException("Tour name is required");
@@ -81,7 +81,7 @@ public class TourController {
     }
 
     @DeleteMapping("/tours/{id}")
-    @CacheEvict(value = "tour", allEntries = true)
+    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
         tourService.deleteById(id);
         return ResponseEntity.noContent().build();
@@ -89,7 +89,7 @@ public class TourController {
 
     @PostMapping("/tours/{tourId}/transport/{transportId}")
     @Transactional
-    @CacheEvict(value = "tour", allEntries = true)
+    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<TourDto> addTransportToTour(@PathVariable Long tourId,
                                                       @PathVariable Long transportId) {
         TourDto updatedTour = tourService.addOrUpdateTransportInTour(tourId, transportId);
@@ -99,7 +99,7 @@ public class TourController {
 
     @DeleteMapping("/tours/{tourId}/transport")
     @Transactional
-    @CacheEvict(value = "tour", allEntries = true)
+    @CacheEvict(value = {"tour", "country", "transport"}, allEntries = true)
     public ResponseEntity<TourDto> removeTransportFromTour(@PathVariable Long tourId) {
         TourDto updatedTour = tourService.removeTransportFromTour(tourId);
         logger.info("Transport removed from tour with id {}", tourId);
