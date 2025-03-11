@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CountryController {
 
     private static final Logger logger = LoggerFactory.getLogger(CountryController.class);
+    public static final String ATTRACTIONS = "Attractions are required";
+    public static final String VISA = "Visa cost must be a non-negative number";
+    public static final String LANGUAGES_ARE_REQUIRED = "National languages are required";
     private final CountryService countryService;
     private static final String COUNTRY_NAME_REQUIRED = "Country name is required";
 
@@ -53,13 +56,14 @@ public class CountryController {
             throw new ValidationException(COUNTRY_NAME_REQUIRED);
         }
         if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
-            throw new ValidationException("Attractions are required");
+            throw new ValidationException(ATTRACTIONS);
         }
         if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
-            throw new ValidationException("Visa cost must be a non-negative number");
+            throw new ValidationException(VISA);
         }
-        if (countryDto.getNationalLanguages() == null || countryDto.getNationalLanguages().trim().isEmpty()) {
-            throw new ValidationException("National languages are required");
+        if (countryDto.getNationalLanguages()
+                == null || countryDto.getNationalLanguages().trim().isEmpty()) {
+            throw new ValidationException(LANGUAGES_ARE_REQUIRED);
         }
         CountryDto savedCountry = countryService.save(countryDto);
         return ResponseEntity.ok(savedCountry);
@@ -75,13 +79,15 @@ public class CountryController {
             throw new ValidationException("At least one tour ID is required");
         }
         if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
-            throw new ValidationException("Attractions are required");
+            throw new ValidationException(ATTRACTIONS);
         }
         if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
-            throw new ValidationException("Visa cost must be a non-negative number");
+            throw new ValidationException(
+                    VISA);
         }
-        if (countryDto.getNationalLanguages() == null || countryDto.getNationalLanguages().trim().isEmpty()) {
-            throw new ValidationException("National languages are required");
+        if (countryDto.getNationalLanguages()
+                == null || countryDto.getNationalLanguages().trim().isEmpty()) {
+            throw new ValidationException(LANGUAGES_ARE_REQUIRED);
         }
         CountryDto savedCountry = countryService.createCountryWithTours(countryDto, tourIds);
         return ResponseEntity.ok(savedCountry);
@@ -94,13 +100,15 @@ public class CountryController {
             throw new ValidationException(COUNTRY_NAME_REQUIRED);
         }
         if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
-            throw new ValidationException("Attractions are required");
+            throw new ValidationException(ATTRACTIONS);
         }
         if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
-            throw new ValidationException("Visa cost must be a non-negative number");
+            throw new ValidationException(
+                    VISA);
         }
-        if (countryDto.getNationalLanguages() == null || countryDto.getNationalLanguages().trim().isEmpty()) {
-            throw new ValidationException("National languages are required");
+        if (countryDto.getNationalLanguages()
+                == null || countryDto.getNationalLanguages().trim().isEmpty()) {
+            throw new ValidationException(LANGUAGES_ARE_REQUIRED);
         }
         CountryDto updatedCountry = countryService.updateCountry(id, countryDto);
         return ResponseEntity.ok(updatedCountry);
