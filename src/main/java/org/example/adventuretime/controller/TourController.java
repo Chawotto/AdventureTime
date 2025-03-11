@@ -8,6 +8,7 @@ import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.TourService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -48,6 +49,7 @@ public class TourController {
     }
 
     @PostMapping("/tours")
+    @CacheEvict(value = "tour", allEntries = true)
     public ResponseEntity<TourDto> createTour(@RequestBody TourDto tourDto) {
         if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
             throw new ValidationException("Tour name is required");
@@ -63,6 +65,7 @@ public class TourController {
     }
 
     @PutMapping("/tours/{id}")
+    @CacheEvict(value = "tour", allEntries = true)
     public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
         if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
             throw new ValidationException("Tour name is required");
@@ -78,6 +81,7 @@ public class TourController {
     }
 
     @DeleteMapping("/tours/{id}")
+    @CacheEvict(value = "tour", allEntries = true)
     public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
         tourService.deleteById(id);
         return ResponseEntity.noContent().build();
@@ -85,6 +89,7 @@ public class TourController {
 
     @PostMapping("/tours/{tourId}/transport/{transportId}")
     @Transactional
+    @CacheEvict(value = "tour", allEntries = true)
     public ResponseEntity<TourDto> addTransportToTour(@PathVariable Long tourId,
                                                       @PathVariable Long transportId) {
         TourDto updatedTour = tourService.addOrUpdateTransportInTour(tourId, transportId);
@@ -94,6 +99,7 @@ public class TourController {
 
     @DeleteMapping("/tours/{tourId}/transport")
     @Transactional
+    @CacheEvict(value = "tour", allEntries = true)
     public ResponseEntity<TourDto> removeTransportFromTour(@PathVariable Long tourId) {
         TourDto updatedTour = tourService.removeTransportFromTour(tourId);
         logger.info("Transport removed from tour with id {}", tourId);
