@@ -70,4 +70,11 @@ public class TourService {
         Tour updatedTour = tourRepository.save(tour);
         return TourMapper.toDto(updatedTour);
     }
+
+    @Transactional
+    public List<TourDto> findToursByTransportType(String name) {
+        return tourRepository.findToursByTransportTypeJpql(name).stream()
+                .map(TourMapper::toDto)
+                .toList();
+    }
 }
