@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LogController {
-
     @GetMapping("/logs")
     public ResponseEntity<byte[]> getLogFile(@RequestParam String date) {
+        if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         String logFileName = "logs/adventuretime-" + date + ".log";
-        Path logFilePath = Paths.get(logFileName);
-
+        Path logFilePath = Paths.get(logFileName).normalize();
         if (Files.exists(logFilePath)) {
             try (FileInputStream inputStream = new FileInputStream(logFilePath.toFile())) {
                 byte[] logFileBytes = inputStream.readAllBytes();
