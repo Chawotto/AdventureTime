@@ -3,6 +3,7 @@ package org.example.adventuretime.controller;
 import java.util.List;
 import java.util.Optional;
 import org.example.adventuretime.dto.TransportDto;
+import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.TransportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +45,15 @@ public class TransportController {
 
     @PostMapping("/transport")
     public ResponseEntity<TransportDto> createTransport(@RequestBody TransportDto transportDto) {
+        if (transportDto.getName() == null || transportDto.getName().isEmpty()) {
+            throw new ValidationException("Transport name is required");
+        }
+        if (transportDto.getCapacity() == null || transportDto.getCapacity() <= 0) {
+            throw new ValidationException("Capacity must be a positive integer");
+        }
+        if (transportDto.getCost() == null || transportDto.getCost() < 0) {
+            throw new ValidationException("Cost must be a non-negative number");
+        }
         TransportDto savedTransport = transportService.save(transportDto);
         return ResponseEntity.ok(savedTransport);
     }
@@ -51,6 +61,15 @@ public class TransportController {
     @PutMapping("/transport/{id}")
     public ResponseEntity<TransportDto> updateTransport(@PathVariable Long id,
                                                         @RequestBody TransportDto transportDto) {
+        if (transportDto.getName() == null || transportDto.getName().isEmpty()) {
+            throw new ValidationException("Transport name is required");
+        }
+        if (transportDto.getCapacity() == null || transportDto.getCapacity() <= 0) {
+            throw new ValidationException("Capacity must be a positive integer");
+        }
+        if (transportDto.getCost() == null || transportDto.getCost() < 0) {
+            throw new ValidationException("Cost must be a non-negative number");
+        }
         TransportDto updatedTransport = transportService.updateTransport(id, transportDto);
         return ResponseEntity.ok(updatedTransport);
     }

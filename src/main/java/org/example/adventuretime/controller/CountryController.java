@@ -1,14 +1,15 @@
 package org.example.adventuretime.controller;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.example.adventuretime.dto.CountryDto;
 import org.example.adventuretime.dto.ResponseDto;
+import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.CountryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CountryController {
 
     private static final Logger logger = LoggerFactory.getLogger(CountryController.class);
-
     private final CountryService countryService;
+    private static final String COUNTRY_NAME_REQUIRED = "Country name is required";
 
     public CountryController(CountryService countryService) {
         this.countryService = countryService;
@@ -48,6 +49,18 @@ public class CountryController {
 
     @PostMapping("/countries")
     public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto) {
+        if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {
+            throw new ValidationException(COUNTRY_NAME_REQUIRED);
+        }
+        if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
+            throw new ValidationException("Attractions are required");
+        }
+        if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
+            throw new ValidationException("Visa cost must be a non-negative number");
+        }
+        if (countryDto.getNationalLanguages() == null || countryDto.getNationalLanguages().trim().isEmpty()) {
+            throw new ValidationException("National languages are required");
+        }
         CountryDto savedCountry = countryService.save(countryDto);
         return ResponseEntity.ok(savedCountry);
     }
@@ -55,6 +68,21 @@ public class CountryController {
     @PostMapping("/countries-with-tours")
     public ResponseEntity<CountryDto> createCountryWithTours(@RequestBody CountryDto countryDto,
                                                              @RequestParam List<Long> tourIds) {
+        if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {
+            throw new ValidationException(COUNTRY_NAME_REQUIRED);
+        }
+        if (tourIds == null || tourIds.isEmpty()) {
+            throw new ValidationException("At least one tour ID is required");
+        }
+        if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
+            throw new ValidationException("Attractions are required");
+        }
+        if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
+            throw new ValidationException("Visa cost must be a non-negative number");
+        }
+        if (countryDto.getNationalLanguages() == null || countryDto.getNationalLanguages().trim().isEmpty()) {
+            throw new ValidationException("National languages are required");
+        }
         CountryDto savedCountry = countryService.createCountryWithTours(countryDto, tourIds);
         return ResponseEntity.ok(savedCountry);
     }
@@ -62,6 +90,18 @@ public class CountryController {
     @PutMapping("/countries/{id}")
     public ResponseEntity<CountryDto> updateCountry(@PathVariable Long id,
                                                     @RequestBody CountryDto countryDto) {
+        if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {
+            throw new ValidationException(COUNTRY_NAME_REQUIRED);
+        }
+        if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {
+            throw new ValidationException("Attractions are required");
+        }
+        if (countryDto.getVisaCost() == null || countryDto.getVisaCost() < 0) {
+            throw new ValidationException("Visa cost must be a non-negative number");
+        }
+        if (countryDto.getNationalLanguages() == null || countryDto.getNationalLanguages().trim().isEmpty()) {
+            throw new ValidationException("National languages are required");
+        }
         CountryDto updatedCountry = countryService.updateCountry(id, countryDto);
         return ResponseEntity.ok(updatedCountry);
     }
@@ -92,9 +132,11 @@ public class CountryController {
 
     @GetMapping("/query")
     public ResponseDto getQueryParams(@RequestParam String country) {
+        if (country == null || country.trim().isEmpty()) {
+            throw new ValidationException(COUNTRY_NAME_REQUIRED);
+        }
         String searchPattern = country + "%";
         List<CountryDto> availableCountries = countryService.findByNameLike(searchPattern);
-
         if (!availableCountries.isEmpty()) {
             StringBuilder responseMessage = new StringBuilder("Countries found: ");
             for (CountryDto c : availableCountries) {
@@ -103,7 +145,6 @@ public class CountryController {
             }
             return new ResponseDto(responseMessage.toString());
         }
-
         return new ResponseDto("Country " + country + " is not found.");
     }
 

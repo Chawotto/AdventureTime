@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.example.adventuretime.dto.TourDto;
+import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.TourService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,12 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 public class TourController {
 
     private static final Logger logger = LoggerFactory.getLogger(TourController.class);
-
     private final TourService tourService;
 
     public TourController(TourService tourService) {
@@ -50,12 +49,30 @@ public class TourController {
 
     @PostMapping("/tours")
     public ResponseEntity<TourDto> createTour(@RequestBody TourDto tourDto) {
+        if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
+            throw new ValidationException("Tour name is required");
+        }
+        if (tourDto.getDescription() == null || tourDto.getDescription().isEmpty()) {
+            throw new ValidationException("Tour description is required");
+        }
+        if (tourDto.getDurationDays() == null || tourDto.getDurationDays() <= 0) {
+            throw new ValidationException("Duration days must be a positive integer");
+        }
         TourDto savedTour = tourService.save(tourDto);
         return ResponseEntity.ok(savedTour);
     }
 
     @PutMapping("/tours/{id}")
     public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
+        if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
+            throw new ValidationException("Tour name is required");
+        }
+        if (tourDto.getDescription() == null || tourDto.getDescription().isEmpty()) {
+            throw new ValidationException("Tour description is required");
+        }
+        if (tourDto.getDurationDays() == null || tourDto.getDurationDays() <= 0) {
+            throw new ValidationException("Duration days must be a positive integer");
+        }
         TourDto updatedTour = tourService.updateTour(id, tourDto);
         return ResponseEntity.ok(updatedTour);
     }
@@ -85,6 +102,9 @@ public class TourController {
 
     @GetMapping("/tours/by-transport")
     public ResponseEntity<List<TourDto>> getToursByTransportType(@RequestParam String name) {
+        if (name == null || name.isEmpty()) {
+            throw new ValidationException("Transport name is required");
+        }
         List<TourDto> tours = tourService.findToursByTransportType(name);
         return ResponseEntity.ok(tours);
     }
