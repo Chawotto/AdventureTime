@@ -1,16 +1,21 @@
 package org.example.adventuretime.service;
 
+import jakarta.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.example.adventuretime.config.CacheConfig;
 import org.example.adventuretime.dto.CountryDto;
+import org.example.adventuretime.dto.TourDto;
 import org.example.adventuretime.mapper.CountryMapper;
+import org.example.adventuretime.mapper.TourMapper;
 import org.example.adventuretime.model.Country;
 import org.example.adventuretime.model.Tour;
 import org.example.adventuretime.repository.CountryRepository;
 import org.example.adventuretime.repository.TourRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,37 +25,18 @@ public class CountryService {
 
     private final CountryRepository countryRepository;
     private final TourRepository tourRepository;
+    private final CacheConfig cacheConfig;
 
     public List<CountryDto> findAll() {
-        return countryRepository.findAll().stream()
+        Collection<CountryDto> cachedCountries = cacheConfig.getAllCountries();
+        if (!cachedCountries.isEmpty()) {
+            return new ArrayList<>(cachedCountries);
+        }
+        List<CountryDto> countries = countryRepository.findAll().stream()
                 .map(CountryMapper::toDto)
                 .toList();
-    }
-
-    public Optional<CountryDto> findById(Long id) {
-        return countryRepository.findById(id)
-                .map(CountryMapper::toDto);
-    }
-
-    public CountryDto save(CountryDto countryDto) {
-        Country country = CountryMapper.toEntity(countryDto);
-        Country saved = countryRepository.save(country);
-        return CountryMapper.toDto(saved);
-    }
-
-    @Transactional
-    public void deleteCountry(Long countryId) {
-        Optional<Country> countryOpt = countryRepository.findById(countryId);
-        if (countryOpt.isPresent()) {
-            Country country = countryOpt.get();
-
-            for (Tour tour : country.getTours()) {
-                tour.getCountries().remove(country);
-                tourRepository.save(tour);
-            }
-
-            countryRepository.delete(country);
-        }
+        countries.forEach(country -> cacheConfig.putCountry(country.getId(), country));
+        return countries;
     }
 
     public List<CountryDto> findByNameLike(String namePattern) {
@@ -59,14 +45,60 @@ public class CountryService {
                 .toList();
     }
 
+    public Optional<CountryDto> findById(Long id) {
+        CountryDto cachedCountry = cacheConfig.getCountry(id);
+        if (cachedCountry != null) {
+            return Optional.of(cachedCountry);
+        }
+        Optional<CountryDto> countryDto = countryRepository.findById(id)
+                .map(CountryMapper::toDto);
+        countryDto.ifPresent(country -> cacheConfig.putCountry(id, country));
+        return countryDto;
+    }
+
+    public CountryDto save(CountryDto countryDto) {
+        Country country = CountryMapper.toEntity(countryDto);
+        Country saved = countryRepository.save(country);
+        CountryDto savedDto = CountryMapper.toDto(saved);
+        cacheConfig.putCountry(savedDto.getId(), savedDto);
+        return savedDto;
+    }
+
     @Transactional
     public CountryDto updateCountry(Long id, CountryDto countryDto) {
         Country country = countryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(COUNTRY_NOT_FOUND));
         country.setName(countryDto.getName());
         country.setAvailable(countryDto.isAvailable());
-        Country updated = countryRepository.save(country);
-        return CountryMapper.toDto(updated);
+        country.setAttractions(countryDto.getAttractions());
+        country.setVisaCost(countryDto.getVisaCost());
+        country.setNationalLanguages(countryDto.getNationalLanguages());
+        Country updatedCountry = countryRepository.save(country);
+        CountryDto updatedDto = CountryMapper.toDto(updatedCountry);
+
+        cacheConfig.putCountry(id, updatedDto);
+
+        for (Tour tour : country.getTours()) {
+            TourDto tourDto = TourMapper.toDto(tour);
+            cacheConfig.putTour(tour.getId(), tourDto);
+        }
+
+        return updatedDto;
+    }
+
+    @Transactional
+    public void deleteCountry(Long id) {
+        Country country = countryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(COUNTRY_NOT_FOUND));
+        List<Tour> toursToUpdate = new ArrayList<>(country.getTours());
+        for (Tour tour : toursToUpdate) {
+            tour.getCountries().remove(country);
+            tourRepository.save(tour);
+            TourDto tourDto = TourMapper.toDto(tour);
+            cacheConfig.putTour(tour.getId(), tourDto);
+        }
+        countryRepository.delete(country);
+        cacheConfig.removeCountry(id);
     }
 
     @Transactional
@@ -77,9 +109,19 @@ public class CountryService {
                 .orElseThrow(() -> new RuntimeException("Tour not found"));
         country.getTours().add(tour);
         tour.getCountries().add(country);
+        return getCountryDto(countryId, tourId, country, tour);
+    }
+
+    private CountryDto getCountryDto(Long countryId, Long tourId, Country country, Tour tour) {
         countryRepository.save(country);
         tourRepository.save(tour);
-        return CountryMapper.toDto(country);
+
+        CountryDto countryDto = CountryMapper.toDto(country);
+        TourDto tourDto = TourMapper.toDto(tour);
+
+        cacheConfig.putCountry(countryId, countryDto);
+        cacheConfig.putTour(tourId, tourDto);
+        return countryDto;
     }
 
     @Transactional
@@ -90,8 +132,6 @@ public class CountryService {
                 .orElseThrow(() -> new RuntimeException("Tour not found"));
         country.getTours().remove(tour);
         tour.getCountries().remove(country);
-        countryRepository.save(country);
-        tourRepository.save(tour);
-        return CountryMapper.toDto(country);
+        return getCountryDto(countryId, tourId, country, tour);
     }
 }

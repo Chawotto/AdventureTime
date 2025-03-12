@@ -14,4 +14,8 @@ public interface TourRepository extends JpaRepository<Tour, Long> {
 
     @Query("SELECT t FROM Tour t WHERE t.transport.name = :name")
     List<Tour> findToursByTransportTypeJpql(@Param("name") String name);
+
+    @Query(value = "SELECT t.* FROM tour t INNER JOIN transport tr "
+           + "ON t.transport_id = tr.id WHERE tr.name = :name", nativeQuery = true)
+    List<Tour> findToursByTransportTypeNative(@Param("name") String name);
 }

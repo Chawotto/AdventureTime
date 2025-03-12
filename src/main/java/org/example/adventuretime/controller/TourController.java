@@ -4,12 +4,12 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.example.adventuretime.dto.TourDto;
+import org.example.adventuretime.dto.TransportDto;
 import org.example.adventuretime.exception.ValidationException;
 import org.example.adventuretime.service.TourService;
+import org.example.adventuretime.service.TransportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +25,14 @@ public class TourController {
 
     private static final Logger logger = LoggerFactory.getLogger(TourController.class);
     private final TourService tourService;
+    private final TransportService transportService;
 
-    public TourController(TourService tourService) {
+    public TourController(TourService tourService, TransportService transportService) {
         this.tourService = tourService;
+        this.transportService = transportService;
     }
 
     @GetMapping("/tours")
-    @Cacheable(value = "tour")
     public List<TourDto> getAllTours() {
         return tourService.findAll();
     }
@@ -49,24 +50,13 @@ public class TourController {
     }
 
     @PostMapping("/tours")
-    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<TourDto> createTour(@RequestBody TourDto tourDto) {
-        if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
-            throw new ValidationException("Tour name is required");
-        }
-        if (tourDto.getDescription() == null || tourDto.getDescription().isEmpty()) {
-            throw new ValidationException("Tour description is required");
-        }
-        if (tourDto.getDurationDays() == null || tourDto.getDurationDays() <= 0) {
-            throw new ValidationException("Duration days must be a positive integer");
-        }
+        nameException(tourDto);
         TourDto savedTour = tourService.save(tourDto);
         return ResponseEntity.ok(savedTour);
     }
 
-    @PutMapping("/tours/{id}")
-    @CacheEvict(value = {"tour", "country"}, allEntries = true)
-    public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
+    private void nameException(@RequestBody TourDto tourDto) {
         if (tourDto.getName() == null || tourDto.getName().isEmpty()) {
             throw new ValidationException("Tour name is required");
         }
@@ -76,12 +66,16 @@ public class TourController {
         if (tourDto.getDurationDays() == null || tourDto.getDurationDays() <= 0) {
             throw new ValidationException("Duration days must be a positive integer");
         }
+    }
+
+    @PutMapping("/tours/{id}")
+    public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
+        nameException(tourDto);
         TourDto updatedTour = tourService.updateTour(id, tourDto);
         return ResponseEntity.ok(updatedTour);
     }
 
     @DeleteMapping("/tours/{id}")
-    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
         tourService.deleteById(id);
         return ResponseEntity.noContent().build();
@@ -89,17 +83,17 @@ public class TourController {
 
     @PostMapping("/tours/{tourId}/transport/{transportId}")
     @Transactional
-    @CacheEvict(value = {"tour", "country"}, allEntries = true)
     public ResponseEntity<TourDto> addTransportToTour(@PathVariable Long tourId,
                                                       @PathVariable Long transportId) {
-        TourDto updatedTour = tourService.addOrUpdateTransportInTour(tourId, transportId);
+        TransportDto transportDto = transportService.findById(transportId)
+                .orElseThrow(() -> new RuntimeException("Transport not found"));
+        TourDto updatedTour = tourService.addOrUpdateTransportInTour(tourId, transportDto);
         logger.info("Transport with id {} set to tour with id {}", transportId, tourId);
         return ResponseEntity.ok(updatedTour);
     }
 
     @DeleteMapping("/tours/{tourId}/transport")
     @Transactional
-    @CacheEvict(value = {"tour", "country", "transport"}, allEntries = true)
     public ResponseEntity<TourDto> removeTransportFromTour(@PathVariable Long tourId) {
         TourDto updatedTour = tourService.removeTransportFromTour(tourId);
         logger.info("Transport removed from tour with id {}", tourId);
