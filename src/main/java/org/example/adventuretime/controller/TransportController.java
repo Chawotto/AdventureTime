@@ -1,5 +1,6 @@
 package org.example.adventuretime.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import java.util.List;
 import java.util.Optional;
 import org.example.adventuretime.dto.TransportDto;
@@ -26,11 +27,13 @@ public class TransportController {
         this.transportService = transportService;
     }
 
+    @Operation(summary = "Get all transports")
     @GetMapping("/transport")
     public List<TransportDto> getAllTransports() {
         return transportService.findAll();
     }
 
+    @Operation(summary = "Get transport by ID")
     @GetMapping("/transport/{id}")
     public ResponseEntity<TransportDto> getTransportById(@PathVariable Long id) {
         Optional<TransportDto> transport = transportService.findById(id);
@@ -43,6 +46,7 @@ public class TransportController {
         }
     }
 
+    @Operation(summary = "Create a new transport")
     @PostMapping("/transport")
     public ResponseEntity<TransportDto> createTransport(@RequestBody TransportDto transportDto) {
         if (transportDto.getName() == null || transportDto.getName().isEmpty()) {
@@ -58,6 +62,7 @@ public class TransportController {
         return ResponseEntity.ok(savedTransport);
     }
 
+    @Operation(summary = "Update transport by ID")
     @PutMapping("/transport/{id}")
     public ResponseEntity<TransportDto> updateTransport(@PathVariable Long id,
                                                         @RequestBody TransportDto transportDto) {
@@ -74,6 +79,7 @@ public class TransportController {
         return ResponseEntity.ok(updatedTransport);
     }
 
+    @Operation(summary = "Delete transport by ID")
     @DeleteMapping("/transport/{id}")
     public ResponseEntity<Void> deleteTransport(@PathVariable Long id) {
         transportService.deleteById(id);

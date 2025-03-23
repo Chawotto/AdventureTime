@@ -142,5 +142,12 @@ public class TourService {
                 .map(TourMapper::toDto)
                 .toList();
     }
+
+    @Transactional
+    public List<TourDto> findToursByTransportTypeNative(String name) {
+        return tourRepository.findToursByTransportTypeNative(name).stream()
+                .map(TourMapper::toDto)
+                .toList();
+    }
 }
 

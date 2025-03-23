@@ -1,5 +1,6 @@
 package org.example.adventuretime.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LogController {
+    @Operation(summary = "Get log file by date")
     @GetMapping("/logs")
     public ResponseEntity<byte[]> getLogFile(@RequestParam String date) {
         if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {

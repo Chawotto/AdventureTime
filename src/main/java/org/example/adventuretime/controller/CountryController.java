@@ -1,5 +1,6 @@
 package org.example.adventuretime.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -33,11 +34,13 @@ public class CountryController {
         this.countryService = countryService;
     }
 
+    @Operation(summary = "Get all countries")
     @GetMapping("/countries")
     public List<CountryDto> getAllCountries() {
         return countryService.findAll();
     }
 
+    @Operation(summary = "Get country by ID")
     @GetMapping("/countries/{id}")
     public ResponseEntity<CountryDto> getCountryById(@PathVariable Long id) {
         Optional<CountryDto> country = countryService.findById(id);
@@ -50,6 +53,7 @@ public class CountryController {
         }
     }
 
+    @Operation(summary = "Create a new country")
     @PostMapping("/countries")
     public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto) {
         nameException(countryDto);
@@ -73,6 +77,7 @@ public class CountryController {
         }
     }
 
+    @Operation(summary = "Update country by ID")
     @PutMapping("/countries/{id}")
     public ResponseEntity<CountryDto> updateCountry(@PathVariable Long id,
                                                     @RequestBody CountryDto countryDto) {
@@ -81,12 +86,14 @@ public class CountryController {
         return ResponseEntity.ok(updatedCountry);
     }
 
+    @Operation(summary = "Delete country by ID")
     @DeleteMapping("/countries/{id}")
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
         countryService.deleteCountry(id);
         return ResponseEntity.noContent().build();
     }
 
+    @Operation(summary = "Add country to tour")
     @PostMapping("/countries/{countryId}/tours/{tourId}")
     @Transactional
     public ResponseEntity<CountryDto> addTourToCountry(@PathVariable Long countryId,
@@ -96,6 +103,7 @@ public class CountryController {
         return ResponseEntity.ok(updatedCountry);
     }
 
+    @Operation(summary = "Delete country from tour")
     @DeleteMapping("/countries/{countryId}/tours/{tourId}")
     @Transactional
     public ResponseEntity<CountryDto> removeTourFromCountry(@PathVariable Long countryId,
@@ -105,6 +113,7 @@ public class CountryController {
         return ResponseEntity.ok(updatedCountry);
     }
 
+    @Operation(summary = "Check country availability (query)")
     @GetMapping("/query")
     public ResponseDto getQueryParams(@RequestParam String country) {
         if (country == null || country.trim().isEmpty()) {
@@ -123,6 +132,7 @@ public class CountryController {
         return new ResponseDto("Country " + country + " is not found.");
     }
 
+    @Operation(summary = "Country info (path)")
     @GetMapping("/path/{id}")
     public ResponseDto getPathParams(@PathVariable Long id) {
         Optional<CountryDto> availableCountry = countryService.findById(id);

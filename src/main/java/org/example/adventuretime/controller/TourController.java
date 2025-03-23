@@ -1,5 +1,6 @@
 package org.example.adventuretime.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -32,11 +33,13 @@ public class TourController {
         this.transportService = transportService;
     }
 
+    @Operation(summary = "Get all tours")
     @GetMapping("/tours")
     public List<TourDto> getAllTours() {
         return tourService.findAll();
     }
 
+    @Operation(summary = "Get tour by ID")
     @GetMapping("/tours/{id}")
     public ResponseEntity<TourDto> getTourById(@PathVariable Long id) {
         Optional<TourDto> tour = tourService.findById(id);
@@ -49,6 +52,7 @@ public class TourController {
         }
     }
 
+    @Operation(summary = "Create a new tour")
     @PostMapping("/tours")
     public ResponseEntity<TourDto> createTour(@RequestBody TourDto tourDto) {
         nameException(tourDto);
@@ -68,6 +72,7 @@ public class TourController {
         }
     }
 
+    @Operation(summary = "Update tour by ID")
     @PutMapping("/tours/{id}")
     public ResponseEntity<TourDto> updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
         nameException(tourDto);
@@ -75,12 +80,14 @@ public class TourController {
         return ResponseEntity.ok(updatedTour);
     }
 
+    @Operation(summary = "Delete tour by ID")
     @DeleteMapping("/tours/{id}")
     public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
         tourService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
+    @Operation(summary = "Add transport to tour")
     @PostMapping("/tours/{tourId}/transport/{transportId}")
     @Transactional
     public ResponseEntity<TourDto> addTransportToTour(@PathVariable Long tourId,
@@ -92,6 +99,7 @@ public class TourController {
         return ResponseEntity.ok(updatedTour);
     }
 
+    @Operation(summary = "Delete transport from tour")
     @DeleteMapping("/tours/{tourId}/transport")
     @Transactional
     public ResponseEntity<TourDto> removeTransportFromTour(@PathVariable Long tourId) {
@@ -100,12 +108,23 @@ public class TourController {
         return ResponseEntity.ok(updatedTour);
     }
 
+    @Operation(summary = "Sort tours by transport (JPQL)")
     @GetMapping("/tours/by-transport")
     public ResponseEntity<List<TourDto>> getToursByTransportType(@RequestParam String name) {
         if (name == null || name.isEmpty()) {
             throw new ValidationException("Transport name is required");
         }
         List<TourDto> tours = tourService.findToursByTransportType(name);
+        return ResponseEntity.ok(tours);
+    }
+
+    @Operation(summary = "Sort tours by transport (Native)")
+    @GetMapping("/tours/by-transportNative")
+    public ResponseEntity<List<TourDto>> getToursByTransportTypeNative(@RequestParam String name) {
+        if (name == null || name.isEmpty()) {
+            throw new ValidationException("Transport name is required");
+        }
+        List<TourDto> tours = tourService.findToursByTransportTypeNative(name);
         return ResponseEntity.ok(tours);
     }
 }
