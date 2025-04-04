@@ -132,6 +132,19 @@ public class CountryController {
         return new ResponseDto("Country " + country + " is not found.");
     }
 
+    @Operation(summary = "Create multiple countries")
+    @PostMapping("/countries/bulk")
+    public ResponseEntity<List<CountryDto>> createCountries(@RequestBody
+                                                                List<CountryDto> countryDtos) {
+        countryDtos.forEach(this::nameException);
+
+        List<CountryDto> savedCountries = countryDtos.stream()
+                .map(countryService::save)
+                .toList();
+
+        return ResponseEntity.ok(savedCountries);
+    }
+
     @Operation(summary = "Country info (path)")
     @GetMapping("/path/{id}")
     public ResponseDto getPathParams(@PathVariable Long id) {
