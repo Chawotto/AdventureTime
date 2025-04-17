@@ -20,7 +20,8 @@ public class LogFileGenerator {
     private static final Logger logger = LoggerFactory.getLogger(LogFileGenerator.class);
 
     @Async("taskExecutor")
-    public void generateLogFileAsync(LogFileTask task, String date, String level) {
+    public void generateLogFileAsync(LogFileTask task, String date, String level) throws InterruptedException {
+        Thread.sleep(30000);
         logger.info("Starting log file generation for task {} in thread {}",
                 task.getTaskId(), Thread.currentThread().getName());
         try {

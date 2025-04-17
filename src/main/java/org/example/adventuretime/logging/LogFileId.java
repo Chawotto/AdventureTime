@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import lombok.SneakyThrows;
 import org.example.adventuretime.model.LogFileTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class LogFileId {
         this.generatorService = generatorService;
     }
 
+    @SneakyThrows
     public String createLogFileTask(String date, String level) {
         String taskId = UUID.randomUUID().toString();
         LogFileTask task = new LogFileTask(taskId);
