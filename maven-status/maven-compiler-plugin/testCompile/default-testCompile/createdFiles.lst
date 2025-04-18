@@ -1,0 +1,4 @@
+org\example\adventuretime\service\TourServiceTest.class
+org\example\adventuretime\AdventureTimeApplicationTests.class
+org\example\adventuretime\service\TransportServiceTest.class
+org\example\adventuretime\service\CountryServiceTest.class

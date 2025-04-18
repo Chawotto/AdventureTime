@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LogController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AdventureTime</a> &gt; <a href="index.source.html" class="el_package">org.example.adventuretime.controller</a> &gt; <span class="el_source">LogController.java</span></div><h1>LogController.java</h1><pre class="source lang-java linenums">package org.example.adventuretime.controller;
+
+import io.swagger.v3.oas.annotations.Operation;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.regex.Pattern;
+import org.example.adventuretime.logging.LogFileId;
+import org.example.adventuretime.model.LogFileTask;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(&quot;/logs&quot;)
+public class LogController {
+
+    private final LogFileId logFileId;
+
+<span class="fc" id="L29">    public LogController(LogFileId logFileId) {</span>
+<span class="fc" id="L30">        this.logFileId = logFileId;</span>
+<span class="fc" id="L31">    }</span>
+
+    @Operation(summary = &quot;Request log file sorted by date and logging level&quot;)
+    @GetMapping
+    public ResponseEntity&lt;byte[]&gt; getLogFile(
+            @RequestParam String date,
+            @RequestParam(required = false, defaultValue = &quot;all&quot;) String level) {
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (!date.matches(&quot;\\d{4}-\\d{2}-\\d{2}&quot;)) {</span>
+<span class="nc" id="L39">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+        }
+
+<span class="nc" id="L42">        String logFileName = &quot;logs/adventuretime-&quot; + date + &quot;.log&quot;;</span>
+<span class="nc" id="L43">        Path logFilePath = Path.of(logFileName).normalize();</span>
+
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (Files.exists(logFilePath)) {</span>
+<span class="nc" id="L46">            try (var linesStream = Files.lines(logFilePath, StandardCharsets.UTF_8)) {</span>
+                List&lt;String&gt; lines;
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                if (!&quot;all&quot;.equalsIgnoreCase(level)) {</span>
+<span class="nc" id="L50">                    String logLevel = level.toUpperCase();</span>
+<span class="nc" id="L51">                    var logPattern = Pattern.compile(</span>
+                            &quot;^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3} &quot;
+                                    + logLevel + &quot; &quot;);
+
+<span class="nc" id="L55">                    lines = linesStream.filter(line -&gt; logPattern.matcher(line).find())</span>
+<span class="nc" id="L56">                            .toList();</span>
+<span class="nc" id="L57">                } else {</span>
+<span class="nc" id="L58">                    lines = linesStream.toList();</span>
+                }
+
+<span class="nc" id="L61">                byte[] logFileBytes = String.join(&quot;\n&quot;, lines)</span>
+<span class="nc" id="L62">                        .getBytes(StandardCharsets.UTF_8);</span>
+
+<span class="nc" id="L64">                HttpHeaders headers = new HttpHeaders();</span>
+<span class="nc" id="L65">                headers.setContentType(MediaType.TEXT_PLAIN);</span>
+<span class="nc" id="L66">                headers.setContentDispositionFormData(&quot;attachment&quot;,</span>
+                        &quot;adventuretime-&quot; + date + &quot;-&quot; + level + &quot;.log&quot;);
+
+<span class="nc" id="L69">                return new ResponseEntity&lt;&gt;(logFileBytes, headers, HttpStatus.OK);</span>
+<span class="nc" id="L70">            } catch (IOException e) {</span>
+<span class="nc" id="L71">                return new ResponseEntity&lt;&gt;(HttpStatus.INTERNAL_SERVER_ERROR);</span>
+            }
+        } else {
+<span class="nc" id="L74">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span>
+        }
+    }
+
+    @Operation(summary = &quot;Create a task to generate a log file asynchronously&quot;)
+    @PostMapping(&quot;/generate&quot;)
+    public ResponseEntity&lt;String&gt; createLogFileTask(
+            @RequestParam String date,
+            @RequestParam(required = false, defaultValue = &quot;all&quot;) String level) {
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        if (!date.matches(&quot;\\d{4}-\\d{2}-\\d{2}&quot;)) {</span>
+<span class="nc" id="L84">            return new ResponseEntity&lt;&gt;(&quot;Invalid date format&quot;, HttpStatus.BAD_REQUEST);</span>
+        }
+
+<span class="nc" id="L87">        String taskId = logFileId.createLogFileTask(date, level);</span>
+<span class="nc" id="L88">        return new ResponseEntity&lt;&gt;(taskId, HttpStatus.ACCEPTED);</span>
+    }
+
+    @Operation(summary = &quot;Get the status of a log file generation task&quot;)
+    @GetMapping(&quot;/status/{taskId}&quot;)
+    public ResponseEntity&lt;LogFileTask&gt; getTaskStatus(@PathVariable String taskId) {
+<span class="nc" id="L94">        LogFileTask task = logFileId.getTaskStatus(taskId);</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (task == null) {</span>
+<span class="nc" id="L96">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span>
+        }
+<span class="nc" id="L98">        return new ResponseEntity&lt;&gt;(task, HttpStatus.OK);</span>
+    }
+
+    @Operation(summary = &quot;Download the generated log file by task ID&quot;)
+    @GetMapping(&quot;/download/{taskId}&quot;)
+    public ResponseEntity&lt;byte[]&gt; downloadLogFile(@PathVariable String taskId) {
+<span class="nc" id="L104">        Path filePath = logFileId.getLogFilePath(taskId);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (filePath == null) {</span>
+<span class="nc" id="L106">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span>
+        }
+
+        try {
+<span class="nc" id="L110">            byte[] fileBytes = Files.readAllBytes(filePath);</span>
+<span class="nc" id="L111">            HttpHeaders headers = new HttpHeaders();</span>
+<span class="nc" id="L112">            headers.setContentType(MediaType.TEXT_PLAIN);</span>
+<span class="nc" id="L113">            headers.setContentDispositionFormData(&quot;attachment&quot;, filePath.getFileName().toString());</span>
+<span class="nc" id="L114">            return new ResponseEntity&lt;&gt;(fileBytes, headers, HttpStatus.OK);</span>
+<span class="nc" id="L115">        } catch (IOException e) {</span>
+<span class="nc" id="L116">            return new ResponseEntity&lt;&gt;(HttpStatus.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

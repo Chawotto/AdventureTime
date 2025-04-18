@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TourMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AdventureTime</a> &gt; <a href="index.source.html" class="el_package">org.example.adventuretime.mapper</a> &gt; <span class="el_source">TourMapper.java</span></div><h1>TourMapper.java</h1><pre class="source lang-java linenums">package org.example.adventuretime.mapper;
+
+import java.util.stream.Collectors;
+import lombok.experimental.UtilityClass;
+import org.example.adventuretime.dto.TourDto;
+import org.example.adventuretime.model.Tour;
+
+@UtilityClass
+public class TourMapper {
+
+    public TourDto toDto(Tour tour) {
+<span class="pc bpc" id="L12" title="1 of 2 branches missed.">        if (tour == null) return null;</span>
+<span class="fc" id="L13">        TourDto dto = new TourDto();</span>
+<span class="fc" id="L14">        dto.setId(tour.getId());</span>
+<span class="fc" id="L15">        dto.setName(tour.getName());</span>
+<span class="fc" id="L16">        dto.setDescription(tour.getDescription());</span>
+<span class="fc" id="L17">        dto.setDurationDays(tour.getDurationDays());</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        if (tour.getCountries() != null) {</span>
+<span class="fc" id="L19">            dto.setCountries(tour.getCountries().stream()</span>
+<span class="fc" id="L20">                    .map(CountryMapper::toDtoShallow)</span>
+<span class="fc" id="L21">                    .collect(Collectors.toSet()));</span>
+        }
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (tour.getTransport() != null) {</span>
+<span class="fc" id="L24">            dto.setTransport(TransportMapper.toDto(tour.getTransport()));</span>
+        }
+<span class="fc" id="L26">        return dto;</span>
+    }
+
+    public TourDto toDtoShallow(Tour tour) {
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (tour == null) return null;</span>
+<span class="fc" id="L31">        TourDto dto = new TourDto();</span>
+<span class="fc" id="L32">        dto.setId(tour.getId());</span>
+<span class="fc" id="L33">        dto.setName(tour.getName());</span>
+<span class="fc" id="L34">        dto.setDescription(tour.getDescription());</span>
+<span class="fc" id="L35">        dto.setDurationDays(tour.getDurationDays());</span>
+<span class="fc" id="L36">        dto.setTransport(TransportMapper.toDto(tour.getTransport()));</span>
+<span class="fc" id="L37">        return dto;</span>
+    }
+
+    public Tour toEntity(TourDto dto) {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (dto == null) return null;</span>
+<span class="fc" id="L42">        Tour tour = new Tour();</span>
+<span class="fc" id="L43">        tour.setId(dto.getId());</span>
+<span class="fc" id="L44">        tour.setName(dto.getName());</span>
+<span class="fc" id="L45">        tour.setDescription(dto.getDescription());</span>
+<span class="fc" id="L46">        tour.setDurationDays(dto.getDurationDays());</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (dto.getTransport() != null) {</span>
+<span class="nc" id="L48">            tour.setTransport(TransportMapper.toEntity(dto.getTransport()));</span>
+        }
+<span class="fc" id="L50">        return tour;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

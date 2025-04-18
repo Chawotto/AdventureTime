@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CountryController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AdventureTime</a> &gt; <a href="index.source.html" class="el_package">org.example.adventuretime.controller</a> &gt; <span class="el_source">CountryController.java</span></div><h1>CountryController.java</h1><pre class="source lang-java linenums">package org.example.adventuretime.controller;
+
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import org.example.adventuretime.dto.CountryDto;
+import org.example.adventuretime.dto.ResponseDto;
+import org.example.adventuretime.exception.ValidationException;
+import org.example.adventuretime.service.CountryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CountryController {
+
+<span class="fc" id="L26">    private static final Logger logger = LoggerFactory.getLogger(CountryController.class);</span>
+    public static final String ATTRACTIONS = &quot;Attractions are required&quot;;
+    public static final String VISA = &quot;Visa cost must be a non-negative number&quot;;
+    public static final String LANGUAGES_ARE_REQUIRED = &quot;National languages are required&quot;;
+    private final CountryService countryService;
+    private static final String COUNTRY_NAME_REQUIRED = &quot;Country name is required&quot;;
+
+<span class="fc" id="L33">    public CountryController(CountryService countryService) {</span>
+<span class="fc" id="L34">        this.countryService = countryService;</span>
+<span class="fc" id="L35">    }</span>
+
+    @Operation(summary = &quot;Get all countries&quot;)
+    @GetMapping(&quot;/countries&quot;)
+    public List&lt;CountryDto&gt; getAllCountries() {
+<span class="nc" id="L40">        return countryService.findAll();</span>
+    }
+
+    @Operation(summary = &quot;Get country by ID&quot;)
+    @GetMapping(&quot;/countries/{id}&quot;)
+    public ResponseEntity&lt;CountryDto&gt; getCountryById(@PathVariable Long id) {
+<span class="nc" id="L46">        Optional&lt;CountryDto&gt; country = countryService.findById(id);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (country.isPresent()) {</span>
+<span class="nc" id="L48">            logger.info(&quot;Country found: {}&quot;, country.get());</span>
+<span class="nc" id="L49">            return ResponseEntity.ok(country.get());</span>
+        } else {
+<span class="nc" id="L51">            logger.warn(&quot;Country not found for id: {}&quot;, id);</span>
+<span class="nc" id="L52">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    @Operation(summary = &quot;Create a new country&quot;)
+    @PostMapping(&quot;/countries&quot;)
+    public ResponseEntity&lt;CountryDto&gt; createCountry(@RequestBody CountryDto countryDto) {
+<span class="nc" id="L59">        nameException(countryDto);</span>
+<span class="nc" id="L60">        CountryDto savedCountry = countryService.save(countryDto);</span>
+<span class="nc" id="L61">        return ResponseEntity.ok(savedCountry);</span>
+    }
+
+    private void nameException(@RequestBody CountryDto countryDto) {
+<span class="nc bnc" id="L65" title="All 4 branches missed.">        if (countryDto.getName() == null || countryDto.getName().trim().isEmpty()) {</span>
+<span class="nc" id="L66">            throw new ValidationException(COUNTRY_NAME_REQUIRED);</span>
+        }
+<span class="nc bnc" id="L68" title="All 4 branches missed.">        if (countryDto.getAttractions() == null || countryDto.getAttractions().trim().isEmpty()) {</span>
+<span class="nc" id="L69">            throw new ValidationException(ATTRACTIONS);</span>
+        }
+<span class="nc bnc" id="L71" title="All 4 branches missed.">        if (countryDto.getVisaCost() == null || countryDto.getVisaCost() &lt; 0) {</span>
+<span class="nc" id="L72">            throw new ValidationException(VISA);</span>
+        }
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (countryDto.getNationalLanguages()</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">                == null || countryDto.getNationalLanguages().trim().isEmpty()) {</span>
+<span class="nc" id="L76">            throw new ValidationException(LANGUAGES_ARE_REQUIRED);</span>
+        }
+<span class="nc" id="L78">    }</span>
+
+    @Operation(summary = &quot;Update country by ID&quot;)
+    @PutMapping(&quot;/countries/{id}&quot;)
+    public ResponseEntity&lt;CountryDto&gt; updateCountry(@PathVariable Long id,
+                                                    @RequestBody CountryDto countryDto) {
+<span class="nc" id="L84">        nameException(countryDto);</span>
+<span class="nc" id="L85">        CountryDto updatedCountry = countryService.updateCountry(id, countryDto);</span>
+<span class="nc" id="L86">        return ResponseEntity.ok(updatedCountry);</span>
+    }
+
+    @Operation(summary = &quot;Delete country by ID&quot;)
+    @DeleteMapping(&quot;/countries/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteCountry(@PathVariable Long id) {
+<span class="nc" id="L92">        countryService.deleteCountry(id);</span>
+<span class="nc" id="L93">        return ResponseEntity.noContent().build();</span>
+    }
+
+    @Operation(summary = &quot;Add country to tour&quot;)
+    @PostMapping(&quot;/countries/{countryId}/tours/{tourId}&quot;)
+    @Transactional
+    public ResponseEntity&lt;CountryDto&gt; addTourToCountry(@PathVariable Long countryId,
+                                                       @PathVariable Long tourId) {
+<span class="nc" id="L101">        CountryDto updatedCountry = countryService.addTourToCountry(countryId, tourId);</span>
+<span class="nc" id="L102">        logger.info(&quot;Tour added to country: Tour ID = {}, Country ID = {}&quot;, tourId, countryId);</span>
+<span class="nc" id="L103">        return ResponseEntity.ok(updatedCountry);</span>
+    }
+
+    @Operation(summary = &quot;Delete country from tour&quot;)
+    @DeleteMapping(&quot;/countries/{countryId}/tours/{tourId}&quot;)
+    @Transactional
+    public ResponseEntity&lt;CountryDto&gt; removeTourFromCountry(@PathVariable Long countryId,
+                                                            @PathVariable Long tourId) {
+<span class="nc" id="L111">        CountryDto updatedCountry = countryService.removeTourFromCountry(countryId, tourId);</span>
+<span class="nc" id="L112">        logger.info(&quot;Tour removed from country: Tour ID = {}, Country ID = {}&quot;, tourId, countryId);</span>
+<span class="nc" id="L113">        return ResponseEntity.ok(updatedCountry);</span>
+    }
+
+    @Operation(summary = &quot;Check country availability (query)&quot;)
+    @GetMapping(&quot;/query&quot;)
+    public ResponseDto getQueryParams(@RequestParam String country) {
+<span class="nc bnc" id="L119" title="All 4 branches missed.">        if (country == null || country.trim().isEmpty()) {</span>
+<span class="nc" id="L120">            throw new ValidationException(COUNTRY_NAME_REQUIRED);</span>
+        }
+<span class="nc" id="L122">        String searchPattern = country + &quot;%&quot;;</span>
+<span class="nc" id="L123">        List&lt;CountryDto&gt; availableCountries = countryService.findByNameLike(searchPattern);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (!availableCountries.isEmpty()) {</span>
+<span class="nc" id="L125">            StringBuilder responseMessage = new StringBuilder(&quot;Countries found: &quot;);</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">            for (CountryDto c : availableCountries) {</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">                String availability = c.isAvailable() ? &quot;is available.&quot; : &quot;is not available.&quot;;</span>
+<span class="nc" id="L128">                responseMessage.append(c.getName()).append(&quot; &quot;).append(availability).append(&quot; &quot;);</span>
+<span class="nc" id="L129">            }</span>
+<span class="nc" id="L130">            return new ResponseDto(responseMessage.toString());</span>
+        }
+<span class="nc" id="L132">        return new ResponseDto(&quot;Country &quot; + country + &quot; is not found.&quot;);</span>
+    }
+
+    @Operation(summary = &quot;Create multiple countries&quot;)
+    @PostMapping(&quot;/countries/bulk&quot;)
+    public ResponseEntity&lt;List&lt;CountryDto&gt;&gt; createCountries(@RequestBody
+                                                                List&lt;CountryDto&gt; countryDtos) {
+<span class="nc" id="L139">        countryDtos.forEach(this::nameException);</span>
+
+<span class="nc" id="L141">        List&lt;CountryDto&gt; savedCountries = countryDtos.stream()</span>
+<span class="nc" id="L142">                .map(countryService::save)</span>
+<span class="nc" id="L143">                .toList();</span>
+
+<span class="nc" id="L145">        return ResponseEntity.ok(savedCountries);</span>
+    }
+
+    @Operation(summary = &quot;Country info (path)&quot;)
+    @GetMapping(&quot;/path/{id}&quot;)
+    public ResponseDto getPathParams(@PathVariable Long id) {
+<span class="nc" id="L151">        Optional&lt;CountryDto&gt; availableCountry = countryService.findById(id);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        if (availableCountry.isPresent()) {</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">            String status = availableCountry.get().isAvailable() ? &quot;available&quot; : &quot;not available&quot;;</span>
+<span class="nc" id="L154">            String countryName = availableCountry.get().getName();</span>
+<span class="nc" id="L155">            return new ResponseDto(String.format(&quot;The country %s is %s.&quot;, countryName, status));</span>
+        }
+<span class="nc" id="L157">        return new ResponseDto(String.format(&quot;The country with ID %d is not found.&quot;, id));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

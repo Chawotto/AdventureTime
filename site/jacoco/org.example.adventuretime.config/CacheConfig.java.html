@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CacheConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AdventureTime</a> &gt; <a href="index.source.html" class="el_package">org.example.adventuretime.config</a> &gt; <span class="el_source">CacheConfig.java</span></div><h1>CacheConfig.java</h1><pre class="source lang-java linenums">package org.example.adventuretime.config;
+
+import java.util.Collection;
+import org.example.adventuretime.dto.CountryDto;
+import org.example.adventuretime.dto.TourDto;
+import org.example.adventuretime.dto.TransportDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Component
+<span class="fc" id="L12">public class CacheConfig {</span>
+    private static final int MAX_TOUR_CACHE_SIZE = 100;
+    private static final int MAX_COUNTRY_CACHE_SIZE = 100;
+    private static final int MAX_TRANSPORT_CACHE_SIZE = 100;
+<span class="fc" id="L16">    private static final Logger logger = LoggerFactory.getLogger(CacheConfig.class);</span>
+
+<span class="fc" id="L18">    private final LruCache&lt;Long, TourDto&gt; tourCache = new LruCache&lt;&gt;(MAX_TOUR_CACHE_SIZE);</span>
+<span class="fc" id="L19">    private final LruCache&lt;Long, CountryDto&gt; countryCache = new LruCache&lt;&gt;(MAX_COUNTRY_CACHE_SIZE);</span>
+<span class="fc" id="L20">    private final LruCache&lt;Long, TransportDto&gt; transportCache =</span>
+            new LruCache&lt;&gt;(MAX_TRANSPORT_CACHE_SIZE);
+
+    public TourDto getTour(Long id) {
+<span class="nc" id="L24">        logger.debug(&quot;Запрос к кэшу туров для ID: {}&quot;, id);</span>
+<span class="nc" id="L25">        return tourCache.get(id);</span>
+    }
+
+    public void putTour(Long id, TourDto tourDto) {
+<span class="nc" id="L29">        tourCache.put(id, tourDto);</span>
+<span class="nc" id="L30">    }</span>
+
+    public void removeTour(Long id) {
+<span class="nc" id="L33">        tourCache.remove(id);</span>
+<span class="nc" id="L34">    }</span>
+
+    public Collection&lt;TourDto&gt; getAllTours() {
+<span class="nc" id="L37">        logger.debug(&quot;Запрос всех туров из кэша&quot;);</span>
+<span class="nc" id="L38">        return tourCache.getAll();</span>
+    }
+
+    public CountryDto getCountry(Long id) {
+<span class="nc" id="L42">        logger.debug(&quot;Запрос к кэшу стран для ID: {}&quot;, id);</span>
+<span class="nc" id="L43">        return countryCache.get(id);</span>
+    }
+
+    public void putCountry(Long id, CountryDto countryDto) {
+<span class="nc" id="L47">        countryCache.put(id, countryDto);</span>
+<span class="nc" id="L48">    }</span>
+
+    public void removeCountry(Long id) {
+<span class="nc" id="L51">        countryCache.remove(id);</span>
+<span class="nc" id="L52">    }</span>
+
+    public TransportDto getTransport(Long id) {
+<span class="nc" id="L55">        logger.debug(&quot;Запрос к кэшу транспорта для ID: {}&quot;, id);</span>
+<span class="nc" id="L56">        return transportCache.get(id);</span>
+    }
+
+    public void putTransport(Long id, TransportDto transportDto) {
+<span class="nc" id="L60">        transportCache.put(id, transportDto);</span>
+<span class="nc" id="L61">    }</span>
+
+    public void removeTransport(Long id) {
+<span class="nc" id="L64">        transportCache.remove(id);</span>
+<span class="nc" id="L65">    }</span>
+
+    public Collection&lt;TransportDto&gt; getAllTransports() {
+<span class="nc" id="L68">        logger.debug(&quot;Запрос всех транспортов из кэша&quot;);</span>
+<span class="nc" id="L69">        return transportCache.getAll();</span>
+    }
+
+    public Collection&lt;CountryDto&gt; getAllCountries() {
+<span class="nc" id="L73">        logger.debug(&quot;Запрос всех стран из кэша&quot;);</span>
+<span class="nc" id="L74">        return countryCache.getAll();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
