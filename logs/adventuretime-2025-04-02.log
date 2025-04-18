@@ -1,0 +1,494 @@
+2025-04-02 11:39:54.786 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 1784 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 11:39:54.788 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 11:39:55.951 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 11:39:56.034 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
+2025-04-02 11:39:57.027 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 11:39:57.048 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:39:57.050 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 11:39:57.050 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 11:39:57.136 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 11:39:57.136 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2256 ms
+2025-04-02 11:39:57.432 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 11:39:57.525 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 11:39:57.573 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 11:39:57.993 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 11:39:58.037 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 11:39:58.269 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44ddb518
+2025-04-02 11:39:58.272 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 11:39:58.324 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 11:39:58.329 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 11:39:58.365 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 11:39:59.737 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 11:39:59.887 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:40:00.674 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 11:40:01.915 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 11:40:02.052 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 11:40:03.045 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:40:03.085 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 11:40:03.098 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 9.043 seconds (process running for 9.928)
+2025-04-02 11:40:43.601 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-02 11:40:43.602 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-02 11:40:43.604 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-04-02 11:40:43.633 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-04-02 11:40:43.796 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-04-02 11:40:54.177 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-04-02 11:41:19.592 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-04-02 11:41:22.611 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.createCountries(..) с аргументами: [[CountryDto(id=null, name=Afganistan, available=false, attractions=Islam, visaCost=50.0, nationalLanguages=Arabic, tours=null), CountryDto(id=null, name=Iraq, available=false, attractions=Sky, visaCost=60.0, nationalLanguages=Arabic, tours=null)]]
+2025-04-02 11:41:22.742 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 16 в кэше
+2025-04-02 11:41:22.744 INFO  o.e.a.logging.LoggingAspect - Страна с ID 16 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:22.750 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 17 в кэше
+2025-04-02 11:41:22.750 INFO  o.e.a.logging.LoggingAspect - Страна с ID 17 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:22.751 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.createCountries(..) с результатом: <200 OK OK,[CountryDto(id=16, name=Afganistan, available=false, attractions=Islam, visaCost=50.0, nationalLanguages=Arabic, tours=[]), CountryDto(id=17, name=Iraq, available=false, attractions=Sky, visaCost=60.0, nationalLanguages=Arabic, tours=[])],[]>
+2025-04-02 11:41:48.629 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.deleteCountry(..) с аргументами: [16]
+2025-04-02 11:41:48.699 INFO  o.e.a.logging.LoggingAspect - Удаление Страна с ID 16 из кэша
+2025-04-02 11:41:48.700 INFO  o.e.a.logging.LoggingAspect - Страна с ID 16 успешно удален из кэша
+2025-04-02 11:41:48.711 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.deleteCountry(..) с результатом: <204 NO_CONTENT No Content,[]>
+2025-04-02 11:41:51.346 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.deleteCountry(..) с аргументами: [17]
+2025-04-02 11:41:51.354 INFO  o.e.a.logging.LoggingAspect - Удаление Страна с ID 17 из кэша
+2025-04-02 11:41:51.355 INFO  o.e.a.logging.LoggingAspect - Страна с ID 17 успешно удален из кэша
+2025-04-02 11:41:51.360 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.deleteCountry(..) с результатом: <204 NO_CONTENT No Content,[]>
+2025-04-02 11:41:56.668 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.getAllCountries() с аргументами: []
+2025-04-02 11:41:56.668 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из кэша, количество: 0
+2025-04-02 11:41:56.737 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из базы данных, количество: 9
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 3 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 3 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 6 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 6 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 7 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 7 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 9 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 9 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 10 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 10 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 12 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 12 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 13 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 13 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 14 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 14 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 15 в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Страна с ID 15 успешно добавлен/обновлен в кэше
+2025-04-02 11:41:56.762 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.getAllCountries() с результатом: [CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=[TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=null, transport=null)]), CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=[TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=null, transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89))]), CountryDto(id=7, name=Italy, available=true, attractions=Colisey, visaCost=50.0, nationalLanguages=Italian, Spanish, tours=[]), CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=[TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43))]), CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=[TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=null, transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8))]), CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=[TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0))]), CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=[TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=[TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=[TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=null, transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))])]
+2025-04-02 11:42:05.170 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.createCountries(..) с аргументами: [[CountryDto(id=null, name=Afganistan, available=false, attractions=Islam, visaCost=50.0, nationalLanguages=Arabic, tours=null), CountryDto(id=null, name=Iraq, available=false, attractions=Sky, visaCost=60.0, nationalLanguages=Arabic, tours=null)]]
+2025-04-02 11:42:05.197 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 18 в кэше
+2025-04-02 11:42:05.197 INFO  o.e.a.logging.LoggingAspect - Страна с ID 18 успешно добавлен/обновлен в кэше
+2025-04-02 11:42:05.204 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 19 в кэше
+2025-04-02 11:42:05.204 INFO  o.e.a.logging.LoggingAspect - Страна с ID 19 успешно добавлен/обновлен в кэше
+2025-04-02 11:42:05.204 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.createCountries(..) с результатом: <200 OK OK,[CountryDto(id=18, name=Afganistan, available=false, attractions=Islam, visaCost=50.0, nationalLanguages=Arabic, tours=[]), CountryDto(id=19, name=Iraq, available=false, attractions=Sky, visaCost=60.0, nationalLanguages=Arabic, tours=[])],[]>
+2025-04-02 11:42:09.965 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.getAllCountries() с аргументами: []
+2025-04-02 11:42:09.965 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из кэша, количество: 11
+2025-04-02 11:42:09.965 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.getAllCountries() с результатом: [CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=[TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=null, transport=null)]), CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=[TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=null, transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89))]), CountryDto(id=7, name=Italy, available=true, attractions=Colisey, visaCost=50.0, nationalLanguages=Italian, Spanish, tours=[]), CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=[TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43))]), CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=[TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=null, transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8))]), CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=[TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0))]), CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=[TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=[TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=[TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=null, transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))]), CountryDto(id=18, name=Afganistan, available=false, attractions=Islam, visaCost=50.0, nationalLanguages=Arabic, tours=[]), CountryDto(id=19, name=Iraq, available=false, attractions=Sky, visaCost=60.0, nationalLanguages=Arabic, tours=[])]
+2025-04-02 11:42:20.651 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.deleteCountry(..) с аргументами: [18]
+2025-04-02 11:42:20.660 INFO  o.e.a.logging.LoggingAspect - Удаление Страна с ID 18 из кэша
+2025-04-02 11:42:20.661 INFO  o.e.a.logging.LoggingAspect - Страна с ID 18 успешно удален из кэша
+2025-04-02 11:42:20.682 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.deleteCountry(..) с результатом: <204 NO_CONTENT No Content,[]>
+2025-04-02 11:42:23.653 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.deleteCountry(..) с аргументами: [19]
+2025-04-02 11:42:23.659 INFO  o.e.a.logging.LoggingAspect - Удаление Страна с ID 19 из кэша
+2025-04-02 11:42:23.660 INFO  o.e.a.logging.LoggingAspect - Страна с ID 19 успешно удален из кэша
+2025-04-02 11:42:23.682 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.deleteCountry(..) с результатом: <204 NO_CONTENT No Content,[]>
+2025-04-02 11:42:27.722 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.getAllCountries() с аргументами: []
+2025-04-02 11:42:27.722 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из кэша, количество: 9
+2025-04-02 11:42:27.722 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.getAllCountries() с результатом: [CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=[TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=null, transport=null)]), CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=[TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=null, transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89))]), CountryDto(id=7, name=Italy, available=true, attractions=Colisey, visaCost=50.0, nationalLanguages=Italian, Spanish, tours=[]), CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=[TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43))]), CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=[TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=null, transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8))]), CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=[TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0))]), CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=[TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=[TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=[TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=null, transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))])]
+2025-04-02 11:42:49.853 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 11:42:49.866 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 11:42:49.872 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:42:49.874 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 11:42:49.886 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 11:52:38.870 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 4300 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 11:52:38.873 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 11:52:39.739 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 11:52:39.778 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+2025-04-02 11:52:40.409 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 11:52:40.433 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:52:40.436 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 11:52:40.436 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 11:52:40.534 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 11:52:40.536 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1596 ms
+2025-04-02 11:52:40.760 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 11:52:40.846 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 11:52:40.889 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 11:52:41.249 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 11:52:41.289 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 11:52:41.481 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18faaff6
+2025-04-02 11:52:41.484 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 11:52:41.540 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 11:52:41.546 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 11:52:41.570 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 11:52:42.021 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 11:52:42.029 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:52:42.250 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 11:52:42.320 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 11:52:42.846 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:52:42.885 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 11:52:42.899 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 4.689 seconds (process running for 5.513)
+2025-04-02 11:53:33.487 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 11:53:33.500 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 11:53:33.506 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:53:33.508 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 11:53:33.516 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 11:57:57.865 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 19972 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 11:57:57.866 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 11:57:58.754 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 11:57:58.845 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2025-04-02 11:57:59.734 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 11:57:59.752 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:57:59.754 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 11:57:59.754 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 11:57:59.832 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 11:57:59.833 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1916 ms
+2025-04-02 11:58:00.073 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 11:58:00.166 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 11:58:00.209 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 11:58:00.577 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 11:58:00.619 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 11:58:00.845 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b400bd0
+2025-04-02 11:58:00.848 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 11:58:00.898 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 11:58:00.903 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 11:58:00.928 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 11:58:02.105 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 11:58:02.199 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:58:02.722 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 11:58:03.619 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 11:58:03.742 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 11:58:04.695 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:58:04.721 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 11:58:04.732 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 7.479 seconds (process running for 8.312)
+2025-04-02 11:58:15.640 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-02 11:58:15.641 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-02 11:58:15.643 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-04-02 11:58:15.698 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.getAllCountries() с аргументами: []
+2025-04-02 11:58:15.700 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из кэша, количество: 0
+2025-04-02 11:58:15.864 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из базы данных, количество: 9
+2025-04-02 11:58:15.916 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 3 в кэше
+2025-04-02 11:58:15.917 INFO  o.e.a.logging.LoggingAspect - Страна с ID 3 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.917 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 6 в кэше
+2025-04-02 11:58:15.917 INFO  o.e.a.logging.LoggingAspect - Страна с ID 6 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.917 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 7 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 7 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 9 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 9 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 10 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 10 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 12 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 12 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 13 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 13 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 14 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 14 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 15 в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Страна с ID 15 успешно добавлен/обновлен в кэше
+2025-04-02 11:58:15.918 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.getAllCountries() с результатом: [CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=[TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=null, transport=null)]), CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=[TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=null, transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89))]), CountryDto(id=7, name=Italy, available=true, attractions=Colisey, visaCost=50.0, nationalLanguages=Italian, Spanish, tours=[]), CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=[TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43))]), CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=[TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=null, transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8))]), CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=[TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0))]), CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=[TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=[TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=[TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=null, transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))])]
+2025-04-02 11:58:31.669 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 11:58:31.683 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 11:58:31.689 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:58:31.692 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 11:58:31.702 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 11:58:58.604 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 3088 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 11:58:58.606 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 11:58:59.595 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 11:58:59.670 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 3 JPA repository interfaces.
+2025-04-02 11:59:00.547 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 11:59:00.564 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 11:59:00.566 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 11:59:00.566 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 11:59:00.685 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 11:59:00.685 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2007 ms
+2025-04-02 11:59:00.957 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 11:59:01.050 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 11:59:01.101 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 11:59:01.488 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 11:59:01.529 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 11:59:01.715 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32513dea
+2025-04-02 11:59:01.718 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 11:59:01.968 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 11:59:01.982 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 11:59:02.022 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 11:59:03.292 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 11:59:03.396 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 11:59:04.107 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 12:06:39.066 INFO  o.e.a.AdventureTimeApplicationTests - Starting AdventureTimeApplicationTests using Java 23.0.2 with PID 12308 (started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 12:06:39.068 INFO  o.e.a.AdventureTimeApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 12:06:40.875 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 12:06:40.998 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 3 JPA repository interfaces.
+2025-04-02 12:06:42.552 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 12:06:42.716 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 12:06:42.795 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 12:06:43.545 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 12:06:43.603 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 12:06:44.008 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@511966dc
+2025-04-02 12:06:44.011 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 12:06:44.080 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 12:06:44.086 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 12:06:44.128 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 12:06:46.157 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 12:06:46.300 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 12:06:47.544 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 12:06:49.767 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 12:06:49.904 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 12:06:51.456 INFO  o.e.a.AdventureTimeApplicationTests - Started AdventureTimeApplicationTests in 13.433 seconds (process running for 17.111)
+2025-04-02 12:06:52.643 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 12:06:52.648 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 12:06:53.007 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 12:21:16.817 INFO  o.e.a.AdventureTimeApplicationTests - Starting AdventureTimeApplicationTests using Java 23.0.2 with PID 7860 (started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 12:21:16.819 INFO  o.e.a.AdventureTimeApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 12:21:18.628 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 12:21:18.743 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 3 JPA repository interfaces.
+2025-04-02 12:21:20.325 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 12:21:20.465 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 12:21:20.545 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 12:21:21.351 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 12:21:21.414 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 12:21:22.000 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5953465a
+2025-04-02 12:21:22.004 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 12:21:22.078 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 12:21:22.087 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 12:21:22.124 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 12:21:24.085 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 12:21:24.224 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 12:21:25.418 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 12:21:27.489 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 12:21:27.660 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 12:21:29.063 INFO  o.e.a.AdventureTimeApplicationTests - Started AdventureTimeApplicationTests in 13.149 seconds (process running for 16.101)
+2025-04-02 12:21:30.051 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 12:21:30.055 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 12:21:30.377 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 13:38:08.942 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 32704 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 13:38:08.944 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 13:38:10.028 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 13:38:10.056 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2025-04-02 13:38:10.686 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 13:38:10.703 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 13:38:10.705 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 13:38:10.705 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 13:38:10.809 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 13:38:10.810 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1793 ms
+2025-04-02 13:38:11.079 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 13:38:11.161 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 13:38:11.207 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 13:38:11.619 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 13:38:11.655 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 13:38:11.846 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22cd8ec2
+2025-04-02 13:38:11.848 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 13:38:11.898 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 13:38:11.903 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 13:38:11.925 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 13:38:12.350 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 13:38:12.359 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 13:38:12.583 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 13:38:12.640 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 13:38:13.126 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 13:38:13.146 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 13:38:13.156 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 4.932 seconds (process running for 5.864)
+2025-04-02 13:38:19.107 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 13:38:19.120 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 13:38:19.127 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 13:38:19.129 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 13:38:19.144 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 14:00:35.826 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 3956 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 14:00:35.828 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 14:00:36.804 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 14:00:36.885 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
+2025-04-02 14:00:38.029 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 14:00:38.046 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:00:38.048 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 14:00:38.049 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 14:00:38.134 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 14:00:38.135 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2233 ms
+2025-04-02 14:00:38.423 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 14:00:38.552 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 14:00:38.663 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 14:00:39.133 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 14:00:39.185 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 14:00:39.409 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42238078
+2025-04-02 14:00:39.412 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 14:00:39.477 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 14:00:39.485 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 14:00:39.517 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 14:00:41.199 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 14:00:41.330 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:00:42.100 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 14:00:43.116 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 14:00:43.241 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 14:00:44.146 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 14:00:44.156 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 9.126 seconds (process running for 10.259)
+2025-04-02 14:00:44.158 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 14:00:44.169 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 14:00:44.175 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:00:44.178 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 14:00:44.191 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 14:05:32.638 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 14888 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 14:05:32.641 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 14:05:33.665 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 14:05:33.699 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 JPA repository interfaces.
+2025-04-02 14:05:34.308 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 14:05:34.323 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:05:34.325 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 14:05:34.325 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 14:05:34.413 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 14:05:34.414 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1707 ms
+2025-04-02 14:05:34.616 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 14:05:34.694 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 14:05:34.738 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 14:05:35.153 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 14:05:35.196 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 14:05:35.388 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f3c5308
+2025-04-02 14:05:35.391 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 14:05:35.447 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 14:05:35.454 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 14:05:35.480 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 14:05:35.879 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 14:05:35.887 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:05:36.051 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 14:05:36.102 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 14:05:36.623 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:05:36.652 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 14:05:36.665 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 4.675 seconds (process running for 5.514)
+2025-04-02 14:05:37.071 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 14:05:37.083 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 14:05:37.090 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:05:37.092 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 14:05:37.102 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 14:43:02.711 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 3184 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 14:43:02.712 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 14:43:03.628 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 14:43:03.728 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 3 JPA repository interfaces.
+2025-04-02 14:43:04.665 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 14:43:04.682 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:43:04.684 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 14:43:04.684 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 14:43:04.766 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 14:43:04.766 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1993 ms
+2025-04-02 14:43:05.006 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 14:43:05.111 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 14:43:05.167 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 14:43:05.581 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 14:43:05.628 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 14:43:05.830 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dd64243
+2025-04-02 14:43:05.833 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 14:43:05.879 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 14:43:05.885 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 14:43:05.907 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 14:43:07.157 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 14:43:07.267 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:43:07.934 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 14:43:08.973 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 14:43:09.072 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 14:43:09.911 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:43:09.936 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 14:43:09.948 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 7.857 seconds (process running for 8.815)
+2025-04-02 14:43:23.194 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 14:43:23.210 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 14:43:23.215 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:43:23.217 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 14:43:23.228 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-02 14:43:29.566 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 12940 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-04-02 14:43:29.568 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-02 14:43:30.516 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-02 14:43:30.594 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2025-04-02 14:43:31.481 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-02 14:43:31.497 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:43:31.499 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-02 14:43:31.500 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-02 14:43:31.581 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-02 14:43:31.582 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1956 ms
+2025-04-02 14:43:31.831 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-02 14:43:31.922 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-04-02 14:43:31.963 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-02 14:43:32.286 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-02 14:43:32.321 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-02 14:43:32.482 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23ec63af
+2025-04-02 14:43:32.484 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-02 14:43:32.525 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-04-02 14:43:32.529 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-02 14:43:32.551 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-02 14:43:33.566 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-02 14:43:33.648 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:43:34.178 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-02 14:43:34.974 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-02 14:43:35.066 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-02 14:43:35.734 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-02 14:43:35.753 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-02 14:43:35.762 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 6.784 seconds (process running for 7.693)
+2025-04-02 14:43:45.917 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 14:43:45.932 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-02 14:43:45.937 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-02 14:43:45.940 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-02 14:43:45.952 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

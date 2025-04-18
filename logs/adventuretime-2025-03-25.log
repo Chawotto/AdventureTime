@@ -1,0 +1,299 @@
+2025-03-25 10:33:59.029 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 17944 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-03-25 10:33:59.030 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-25 10:33:59.743 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25 10:33:59.797 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
+2025-03-25 10:34:00.385 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-25 10:34:00.398 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-25 10:34:00.399 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-25 10:34:00.400 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-25 10:34:00.450 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-25 10:34:00.450 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1380 ms
+2025-03-25 10:34:00.603 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25 10:34:00.675 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-03-25 10:34:00.718 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-25 10:34:01.038 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25 10:34:01.074 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-25 10:34:01.219 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@592cb470
+2025-03-25 10:34:01.221 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-25 10:34:01.254 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-03-25 10:34:01.257 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25 10:34:01.275 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-25 10:34:02.146 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25 10:34:02.231 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 10:34:02.630 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-03-25 10:34:03.195 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25 10:34:03.252 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-03-25 10:34:03.736 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-25 10:34:03.751 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-25 10:34:03.758 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 5.218 seconds (process running for 5.912)
+2025-03-25 10:34:03.795 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-25 10:34:03.795 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-25 10:34:03.796 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-25 10:34:04.271 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 326 ms
+2025-03-25 10:36:01.336 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, WARN]
+2025-03-25 10:36:01.344 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@47ad15b3,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-WARN.log""]>
+2025-03-25 10:36:12.482 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, INFO]
+2025-03-25 10:36:12.484 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@6b7fa524,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-INFO.log""]>
+2025-03-25 10:36:23.295 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, all]
+2025-03-25 10:36:23.298 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@3e206b88,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-all.log""]>
+2025-03-25 10:36:32.049 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, WARN]
+2025-03-25 10:36:32.051 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@29776285,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-WARN.log""]>
+2025-03-25 10:37:55.997 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-25 10:37:56.010 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-25 10:37:56.015 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 10:37:56.018 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-25 10:37:56.034 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-25 11:08:04.931 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 17072 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-03-25 11:08:04.933 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-25 11:08:05.871 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25 11:08:05.957 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74 ms. Found 3 JPA repository interfaces.
+2025-03-25 11:08:06.860 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-25 11:08:06.903 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-25 11:08:06.906 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-25 11:08:06.906 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-25 11:08:06.998 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-25 11:08:06.998 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1996 ms
+2025-03-25 11:08:07.268 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25 11:08:07.346 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-03-25 11:08:07.389 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-25 11:08:07.779 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25 11:08:07.820 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-25 11:08:08.018 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e36bc01
+2025-03-25 11:08:08.021 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-25 11:08:08.071 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-03-25 11:08:08.076 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25 11:08:08.101 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-25 11:08:09.206 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25 11:08:09.303 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 11:08:09.836 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-03-25 11:08:10.651 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25 11:08:10.735 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-03-25 11:08:11.410 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-25 11:08:11.430 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-25 11:08:11.441 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 7.126 seconds (process running for 7.945)
+2025-03-25 11:12:54.391 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-25 11:12:54.391 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-25 11:12:54.394 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-03-25 11:12:54.437 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TransportController.getAllTransports() с аргументами: []
+2025-03-25 11:12:54.438 INFO  o.e.a.logging.LoggingAspect - Все Транспорт успешно получены из кэша, количество: 0
+2025-03-25 11:12:54.578 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из базы данных, количество: 7
+2025-03-25 11:12:54.579 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 3 в кэше
+2025-03-25 11:12:54.580 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 3 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.580 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 5 в кэше
+2025-03-25 11:12:54.580 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 5 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.580 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 6 в кэше
+2025-03-25 11:12:54.580 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 6 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.580 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 7 в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 7 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 8 в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 8 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 9 в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 9 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 10 в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 10 успешно добавлен/обновлен в кэше
+2025-03-25 11:12:54.581 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TransportController.getAllTransports() с результатом: [TransportDto(id=3, name=Bus, capacity=50, cost=10.43), TransportDto(id=5, name=Car, capacity=4, cost=88.47), TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0), TransportDto(id=7, name=Horse, capacity=1, cost=55.89), TransportDto(id=8, name=Plane, capacity=150, cost=67.8), TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45), TransportDto(id=10, name=Jet, capacity=15, cost=259.48)]
+2025-03-25 11:12:56.229 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TransportController.getAllTransports() с аргументами: []
+2025-03-25 11:12:56.229 INFO  o.e.a.logging.LoggingAspect - Все Транспорт успешно получены из кэша, количество: 7
+2025-03-25 11:12:56.229 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TransportController.getAllTransports() с результатом: [TransportDto(id=3, name=Bus, capacity=50, cost=10.43), TransportDto(id=5, name=Car, capacity=4, cost=88.47), TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0), TransportDto(id=7, name=Horse, capacity=1, cost=55.89), TransportDto(id=8, name=Plane, capacity=150, cost=67.8), TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45), TransportDto(id=10, name=Jet, capacity=15, cost=259.48)]
+2025-03-25 11:12:57.534 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TransportController.getAllTransports() с аргументами: []
+2025-03-25 11:12:57.535 INFO  o.e.a.logging.LoggingAspect - Все Транспорт успешно получены из кэша, количество: 7
+2025-03-25 11:12:57.535 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TransportController.getAllTransports() с результатом: [TransportDto(id=3, name=Bus, capacity=50, cost=10.43), TransportDto(id=5, name=Car, capacity=4, cost=88.47), TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0), TransportDto(id=7, name=Horse, capacity=1, cost=55.89), TransportDto(id=8, name=Plane, capacity=150, cost=67.8), TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45), TransportDto(id=10, name=Jet, capacity=15, cost=259.48)]
+2025-03-25 11:12:58.423 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TransportController.getAllTransports() с аргументами: []
+2025-03-25 11:12:58.424 INFO  o.e.a.logging.LoggingAspect - Все Транспорт успешно получены из кэша, количество: 7
+2025-03-25 11:12:58.424 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TransportController.getAllTransports() с результатом: [TransportDto(id=3, name=Bus, capacity=50, cost=10.43), TransportDto(id=5, name=Car, capacity=4, cost=88.47), TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0), TransportDto(id=7, name=Horse, capacity=1, cost=55.89), TransportDto(id=8, name=Plane, capacity=150, cost=67.8), TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45), TransportDto(id=10, name=Jet, capacity=15, cost=259.48)]
+2025-03-25 11:13:02.595 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.getAllCountries() с аргументами: []
+2025-03-25 11:13:02.596 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из кэша, количество: 0
+2025-03-25 11:13:02.623 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из базы данных, количество: 9
+2025-03-25 11:13:02.693 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 3 в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Страна с ID 3 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 6 в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Страна с ID 6 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 7 в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Страна с ID 7 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 9 в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Страна с ID 9 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 10 в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Страна с ID 10 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 12 в кэше
+2025-03-25 11:13:02.694 INFO  o.e.a.logging.LoggingAspect - Страна с ID 12 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 13 в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Страна с ID 13 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 14 в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Страна с ID 14 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Страна с ID 15 в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Страна с ID 15 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:02.695 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.getAllCountries() с результатом: [CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=[TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=null, transport=null)]), CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=[TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=null, transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89))]), CountryDto(id=7, name=Italy, available=true, attractions=Colisey, visaCost=50.0, nationalLanguages=Italian, Spanish, tours=[]), CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=[TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43))]), CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=[TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=null, transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8))]), CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=[TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0))]), CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=[TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=[TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=[TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=null, transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))])]
+2025-03-25 11:13:05.316 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.getAllCountries() с аргументами: []
+2025-03-25 11:13:05.316 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из кэша, количество: 9
+2025-03-25 11:13:05.316 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: CountryController.getAllCountries() с результатом: [CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=[TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=null, transport=null)]), CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=[TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=null, transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89))]), CountryDto(id=7, name=Italy, available=true, attractions=Colisey, visaCost=50.0, nationalLanguages=Italian, Spanish, tours=[]), CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=[TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=null, transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43))]), CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=[TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=null, transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8))]), CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=[TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=null, transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0))]), CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=[TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=[TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=null, transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45))]), CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=[TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=null, transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))])]
+2025-03-25 11:13:11.932 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TourController.getAllTours() с аргументами: []
+2025-03-25 11:13:11.933 INFO  o.e.a.logging.LoggingAspect - Все Тур успешно получены из кэша, количество: 0
+2025-03-25 11:13:11.950 INFO  o.e.a.logging.LoggingAspect - Все Неизвестный тип успешно получены из базы данных, количество: 15
+2025-03-25 11:13:11.998 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 2 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 2 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 3 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 3 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 7 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 7 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 9 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 9 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 10 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 10 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 11 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 11 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 12 в кэше
+2025-03-25 11:13:11.999 INFO  o.e.a.logging.LoggingAspect - Тур с ID 12 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 13 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 13 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 14 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 14 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 15 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 15 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 16 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 16 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 17 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 17 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 18 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 18 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 20 в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Тур с ID 20 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.000 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Тур с ID 21 в кэше
+2025-03-25 11:13:12.001 INFO  o.e.a.logging.LoggingAspect - Тур с ID 21 успешно добавлен/обновлен в кэше
+2025-03-25 11:13:12.001 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TourController.getAllTours() с результатом: [TourDto(id=2, name=Paris Tour, description=Very nice tour, durationDays=12, countries=[], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=[CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=null)], transport=null), TourDto(id=7, name=Krakow Tour, description=, durationDays=3, countries=[], transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8)), TourDto(id=9, name=Kiev Tour, description=null, durationDays=10, countries=[], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=10, name=Saint-Petersburg Tour, description=null, durationDays=4, countries=[], transport=null), TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=[CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=null)], transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89)), TourDto(id=12, name=Astana Tour, description=null, durationDays=8, countries=[], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=[CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=null)], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=[CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=null)], transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=[CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=null)], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=[CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=null)], transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=[CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=null)], transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=[CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=null)], transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8)), TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=[CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=null)], transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45)), TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=[CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=null)], transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))]
+2025-03-25 11:13:14.093 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TourController.getAllTours() с аргументами: []
+2025-03-25 11:13:14.094 INFO  o.e.a.logging.LoggingAspect - Все Тур успешно получены из кэша, количество: 15
+2025-03-25 11:13:14.094 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TourController.getAllTours() с результатом: [TourDto(id=2, name=Paris Tour, description=Very nice tour, durationDays=12, countries=[], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=3, name=Minsk Tour, description=, durationDays=5, countries=[CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=null)], transport=null), TourDto(id=7, name=Krakow Tour, description=, durationDays=3, countries=[], transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8)), TourDto(id=9, name=Kiev Tour, description=null, durationDays=10, countries=[], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=10, name=Saint-Petersburg Tour, description=null, durationDays=4, countries=[], transport=null), TourDto(id=11, name=Krakov Tour, description=null, durationDays=5, countries=[CountryDto(id=6, name=Poland, available=true, attractions=Belovezhskaya Puscha, visaCost=50.0, nationalLanguages=Polish, tours=null)], transport=TransportDto(id=7, name=Horse, capacity=1, cost=55.89)), TourDto(id=12, name=Astana Tour, description=null, durationDays=8, countries=[], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=13, name=Seul Tour, description=null, durationDays=13, countries=[CountryDto(id=9, name=South Korea, available=true, attractions=Seul TV , visaCost=23.0, nationalLanguages=Korean, tours=null)], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=14, name=London Tour, description=null, durationDays=9, countries=[CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=null)], transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=15, name=Homel Tour, description=null, durationDays=15, countries=[CountryDto(id=3, name=Belarus, available=true, attractions=Belovezhskaya Puscha, visaCost=10.0, nationalLanguages=Russian, Belorassian, tours=null)], transport=TransportDto(id=3, name=Bus, capacity=50, cost=10.43)), TourDto(id=16, name=InDOnES Tour, description=null, durationDays=11, countries=[CountryDto(id=12, name=Indonesia, available=true, attractions=Sea, visaCost=17.0, nationalLanguages=Spanish, tours=null)], transport=TransportDto(id=6, name=Bicycle, capacity=1, cost=5.0)), TourDto(id=17, name=Greece Tour, description=null, durationDays=7, countries=[CountryDto(id=13, name=Greece, available=true, attractions=Olimpia, visaCost=58.0, nationalLanguages=Greece, English, tours=null)], transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45)), TourDto(id=18, name=Birmenhem Tour, description=Realy nice tour, durationDays=18, countries=[CountryDto(id=10, name=United Kingdom, available=true, attractions=London Uye, visaCost=43.0, nationalLanguages=English, tours=null)], transport=TransportDto(id=8, name=Plane, capacity=150, cost=67.8)), TourDto(id=20, name=Tokyo tour, description=Tour for anime lovers, durationDays=4, countries=[CountryDto(id=14, name=Japan, available=true, attractions=Akihabara, visaCost=30.0, nationalLanguages=Japanese, tours=null)], transport=TransportDto(id=9, name=Luxary Bus, capacity=20, cost=120.45)), TourDto(id=21, name=EKT tour, description=Tour for anime lovers, durationDays=47, countries=[CountryDto(id=15, name=Russia, available=true, attractions=Kremyl, visaCost=25.0, nationalLanguages=Russian, tours=null)], transport=TransportDto(id=10, name=Jet, capacity=15, cost=259.48))]
+2025-03-25 11:24:23.341 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-25 11:24:23.354 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-25 11:24:23.354 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 11:24:23.354 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-25 11:24:23.370 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-25 11:52:12.624 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 2100 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-03-25 11:52:12.626 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-25 11:52:13.573 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25 11:52:13.649 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 3 JPA repository interfaces.
+2025-03-25 11:52:14.427 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-25 11:52:14.442 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-25 11:52:14.444 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-25 11:52:14.444 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-25 11:52:14.511 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-25 11:52:14.511 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1819 ms
+2025-03-25 11:52:14.746 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25 11:52:14.830 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-03-25 11:52:14.870 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-25 11:52:15.256 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25 11:52:15.299 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-25 11:52:15.506 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e36bc01
+2025-03-25 11:52:15.509 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-25 11:52:15.564 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-03-25 11:52:15.571 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25 11:52:15.600 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-25 11:52:16.746 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25 11:52:16.848 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 11:52:17.430 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-03-25 11:52:18.420 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25 11:52:18.568 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-03-25 11:52:19.356 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-25 11:52:19.379 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-25 11:52:19.392 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 7.464 seconds (process running for 8.382)
+2025-03-25 11:52:20.615 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-25 11:52:20.615 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-25 11:52:20.618 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-25 11:52:20.703 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-29, WARN]
+2025-03-25 11:52:20.710 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <404 NOT_FOUND Not Found,[]>
+2025-03-25 11:52:22.878 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-29, WARN]
+2025-03-25 11:52:22.879 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <404 NOT_FOUND Not Found,[]>
+2025-03-25 11:52:27.228 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, WARN]
+2025-03-25 11:52:27.239 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@1d4657eb,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-WARN.log""]>
+2025-03-25 11:52:36.367 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TransportController.getTransportById(..) с аргументами: [100]
+2025-03-25 11:52:36.368 INFO  o.e.a.logging.LoggingAspect - Попытка получить Транспорт с ID 100 из кэша
+2025-03-25 11:52:36.368 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 100 не найден в кэше
+2025-03-25 11:52:36.455 WARN  o.e.a.controller.TransportController - Transport not found for id: 100
+2025-03-25 11:52:36.457 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TransportController.getTransportById(..) с результатом: <404 NOT_FOUND Not Found,[]>
+2025-03-25 11:52:40.001 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: TransportController.getTransportById(..) с аргументами: [10]
+2025-03-25 11:52:40.001 INFO  o.e.a.logging.LoggingAspect - Попытка получить Транспорт с ID 10 из кэша
+2025-03-25 11:52:40.001 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 10 не найден в кэше
+2025-03-25 11:52:40.021 INFO  o.e.a.logging.LoggingAspect - Добавление/обновление Транспорт с ID 10 в кэше
+2025-03-25 11:52:40.023 INFO  o.e.a.logging.LoggingAspect - Транспорт с ID 10 успешно добавлен/обновлен в кэше
+2025-03-25 11:52:40.023 INFO  o.e.a.controller.TransportController - Transport found: TransportDto(id=10, name=Jet, capacity=15, cost=259.48)
+2025-03-25 11:52:40.023 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: TransportController.getTransportById(..) с результатом: <200 OK OK,TransportDto(id=10, name=Jet, capacity=15, cost=259.48),[]>
+2025-03-25 11:58:23.568 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-25 11:58:23.581 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-25 11:58:23.586 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 11:58:23.587 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-25 11:58:23.596 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-25 12:29:31.822 INFO  o.e.a.AdventureTimeApplication - Starting AdventureTimeApplication using Java 23.0.2 with PID 20404 (C:\Users\alexe\IdeaProjects\AdventureTime\target\classes started by alexe in C:\Users\alexe\IdeaProjects\AdventureTime)
+2025-03-25 12:29:31.823 INFO  o.e.a.AdventureTimeApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-25 12:29:32.732 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25 12:29:32.834 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 3 JPA repository interfaces.
+2025-03-25 12:29:33.715 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-25 12:29:33.732 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-25 12:29:33.734 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-25 12:29:33.735 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-25 12:29:33.805 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-25 12:29:33.805 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1925 ms
+2025-03-25 12:29:34.036 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25 12:29:34.126 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-03-25 12:29:34.178 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-25 12:29:34.523 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25 12:29:34.560 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-25 12:29:34.730 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32513dea
+2025-03-25 12:29:34.732 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-25 12:29:34.775 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.24 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2025-03-25 12:29:34.781 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25 12:29:34.803 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.7.24
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-25 12:29:36.002 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25 12:29:36.114 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 12:29:36.686 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-03-25 12:29:37.624 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25 12:29:37.736 INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-03-25 12:29:38.567 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-25 12:29:38.595 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-25 12:29:38.608 INFO  o.e.a.AdventureTimeApplication - Started AdventureTimeApplication in 7.411 seconds (process running for 8.193)
+2025-03-25 12:29:38.686 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-25 12:29:38.687 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-25 12:29:38.688 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-25 12:29:39.701 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 766 ms
+2025-03-25 13:15:14.199 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: CountryController.createCountry(..) с аргументами: [CountryDto(id=null, name=, available=true, attractions=321, visaCost=25.0, nationalLanguages=Ru123ssian, tours=[])]
+2025-03-25 13:15:14.208 ERROR o.e.a.logging.LoggingAspect - Ошибка в методе контроллера: CountryController.createCountry(..) с причиной: Country name is required
+2025-03-25 13:16:04.750 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, all]
+2025-03-25 13:16:04.768 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@167a0ca7,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-all.log""]>
+2025-03-25 13:16:21.428 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-25, ERROR]
+2025-03-25 13:16:21.432 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@7146d14b,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-25-ERROR.log""]>
+2025-03-25 13:16:34.827 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-23, INFO]
+2025-03-25 13:16:34.832 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@20b97d7,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-23-INFO.log""]>
+2025-03-25 13:16:39.294 INFO  o.e.a.logging.LoggingAspect - Вход в метод контроллера: LogController.getLogFile(..) с аргументами: [2025-03-23, WARN]
+2025-03-25 13:16:39.297 INFO  o.e.a.logging.LoggingAspect - Выход из метода контроллера: LogController.getLogFile(..) с результатом: <200 OK OK,[B@4af4abd7,[Content-Type:"text/plain", Content-Disposition:"form-data; name="attachment"; filename="adventuretime-2025-03-23-WARN.log""]>
+2025-03-25 13:23:10.278 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-25 13:23:10.290 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-25 13:23:10.299 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25 13:23:10.302 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-25 13:23:10.308 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
