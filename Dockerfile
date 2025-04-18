@@ -23,7 +23,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Настройки профиля
-ENV SPRING_PROFILES_ACTIVE=prod
+ENV JAVA_OPTS="-Xms256m -Xmx512m -XX:+UseSerialGC -XX:MaxRAMPercentage=75.0 -Dfile.encoding=UTF-8 -Dspring.main.lazy-initialization=true"
 
 # Открываем порт 8080
 EXPOSE 8080
