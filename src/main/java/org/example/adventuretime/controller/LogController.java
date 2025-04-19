@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/logs")
+@RequestMapping("/api/logs")
 public class LogController {
 
     private final LogFileId logFileId;
