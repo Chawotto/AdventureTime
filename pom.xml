@@ -98,6 +98,16 @@
 
     <build>
         <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>
+                        -Xms256m -Xmx512m -XX:+UseSerialGC -XX:MaxRAMPercentage=75.0 -Dfile.encoding=UTF-8 -Dspring.main.lazy-initialization=true
+                    </jvmArguments>
+                </configuration>
+            </plugin>
             <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -111,7 +121,6 @@
                     </annotationProcessors>
                 </configuration>
             </plugin>
-
             <!-- Jacoco (опционально для покрытия тестами) -->
             <plugin>
                 <groupId>org.jacoco</groupId>
