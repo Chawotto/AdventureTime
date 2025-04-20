@@ -1,7 +1,5 @@
 HELP.md
 .idea/
-mvnw
-mvnw.cmd
 docker-compose.yml
 .gitattributes
 logs/
