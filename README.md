@@ -1,5 +1,3 @@
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Chawotto_AdventureTime&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Chawotto_AdventureTime)
-
 # Adventure Time
 
 <p align="center">
