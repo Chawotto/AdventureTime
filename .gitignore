@@ -4,7 +4,7 @@ HELP.md
 mvnw
 mvnw.cmd
 docker-compose.yml
-
+.gitattributes
 logs/
 target/
 *.jar
