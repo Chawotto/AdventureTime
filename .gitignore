@@ -1,4 +1,10 @@
 HELP.md
+.idea/
+.mvn/
+mvnw
+mvnw.cmd
+docker-compose.yml
+
 logs/
 target/
 *.jar
