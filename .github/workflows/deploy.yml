@@ -1,4 +1,4 @@
-name: 🚀 Build and Deploy to Railway
+name: 🚀 Build and Deploy AdventureTime to Railway
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1. Клонируем репозиторий
+      # 1. Клонируем код
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
@@ -36,10 +36,21 @@ jobs:
       - name: 🛠️ Build with Maven
         run: ./mvnw clean package -DskipTests
 
-      # 6. Деплоим на Railway
+      # 6. Проверяем наличие JAR-файла
+      - name: 📦 Check JAR file
+        run: ls -la target/
+
+      # 7. Проверяем содержимое директории перед деплоем
+      - name: 📂 Check directory contents
+        run: ls -la
+
+      # 8. Деплоим на Railway
       - name: 🚀 Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
           SVC_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
-          docker run --rm -v $(pwd):/app -e RAILWAY_TOKEN=$RAILWAY_TOKEN -e SVC_ID=$SVC_ID ghcr.io/railwayapp/cli:latest railway up --service $SVC_ID
+          echo "Service ID: $SVC_ID"
+          echo "Token set: ${RAILWAY_TOKEN:0:5}..."
+          docker run --rm -v $(pwd):/app -e RAILWAY_TOKEN=$RAILWAY_TOKEN -e SVC_ID=$SVC_ID ghcr.io/railwayapp/cli:latest railway whoami || echo "Whoami command failed"
+          timeout 600 docker run --rm -v $(pwd):/app -e RAILWAY_TOKEN=$RAILWAY_TOKEN -e SVC_ID=$SVC_ID ghcr.io/railwayapp/cli:latest railway up --service $SVC_ID
