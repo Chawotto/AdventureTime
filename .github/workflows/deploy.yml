@@ -59,4 +59,8 @@ jobs:
         run: |
           echo "Service ID: $RAILWAY_SERVICE_ID"
           echo "Railway Token: $RAILWAY_TOKEN"
-          railway up --service $RAILWAY_SERVICE_ID --token $RAILWAY_TOKEN
+          # Авторизация с использованием токена
+          echo $RAILWAY_TOKEN | railway login --token
+          # Деплой сервиса
+          railway up --service $RAILWAY_SERVICE_ID
+      
