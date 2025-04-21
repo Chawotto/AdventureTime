@@ -1,8 +1,39 @@
-.git
-.github
+# Исключаем файлы и папки, не нужные для деплоя
+
+# Временные и системные файлы
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Файлы сборки Maven (кроме JAR)
 target/*
 !target/*.jar
-.m2
-node_modules
+
+# Зависимости и кеш Maven
+.m2/
+.mvn/
+mvnw
+mvnw.cmd
+
+# Локальные конфигурации и IDE
+.idea/
+*.iml
+.vscode/
+.env
+.env.local
+
+# Репозиторий и CI/CD
+.git/
+.gitignore
+.github/
+
+# Документация и прочие файлы
 *.md
-*.log
+LICENSE
+Dockerfile
+*.dockerignore
+
+# Тестовые файлы
+src/test/
