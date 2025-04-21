@@ -49,6 +49,7 @@ jobs:
       - name: 📦 Install Railway CLI
         run: |
           npm install -g @railway/cli
+          railway --version || echo "Version command not supported"
 
       # 8. Деплоим на Railway
       - name: 🚀 Deploy to Railway
@@ -57,4 +58,7 @@ jobs:
           RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
           RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
-          railway up --service $RAILWAY_SERVICE_ID
+          echo "Project ID: $RAILWAY_PROJECT_ID"
+          echo "Service ID: $RAILWAY_SERVICE_ID"
+          railway whoami || echo "Whoami command failed"
+          railway up --project $RAILWAY_PROJECT_ID --service $RAILWAY_SERVICE_ID
