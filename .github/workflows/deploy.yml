@@ -45,20 +45,18 @@ jobs:
         with:
           node-version: '16'
 
-      # 7. Устанавливаем Railway CLI через npm
+      # 7. Устанавливаем Railway CLI (версия 3.14.0)
       - name: 📦 Install Railway CLI
         run: |
-          npm install -g @railway/cli
+          npm install -g @railway/cli@3.14.0
           railway --version || echo "Version command not supported"
 
       # 8. Деплоим на Railway
       - name: 🚀 Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
           RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
-          echo "Project ID: $RAILWAY_PROJECT_ID"
           echo "Service ID: $RAILWAY_SERVICE_ID"
           railway whoami || echo "Whoami command failed"
-          railway up --project $RAILWAY_PROJECT_ID --service $RAILWAY_SERVICE_ID
+          railway up --service $RAILWAY_SERVICE_ID
