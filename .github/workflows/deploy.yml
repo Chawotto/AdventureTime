@@ -45,10 +45,10 @@ jobs:
         with:
           node-version: '16'
 
-      # 7. Устанавливаем Railway CLI (версия 3.14.0)
+      # 7. Устанавливаем Railway CLI (версия 3.5.2)
       - name: 📦 Install Railway CLI
         run: |
-          npm install -g @railway/cli@3.14.0
+          npm install -g @railway/cli@3.5.2
           railway --version || echo "Version command not supported"
 
       # 8. Деплоим на Railway
