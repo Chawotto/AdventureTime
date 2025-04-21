@@ -59,6 +59,4 @@ jobs:
         run: |
           echo "Service ID: $RAILWAY_SERVICE_ID"
           echo "Railway Token: $RAILWAY_TOKEN"
-          railway login --token $RAILWAY_TOKEN
-          railway whoami || echo "Whoami command failed"
-          railway up --service $RAILWAY_SERVICE_ID
+          railway up --service $RAILWAY_SERVICE_ID --token $RAILWAY_TOKEN
