@@ -36,7 +36,7 @@ jobs:
       - name: 🛠️ Build with Maven
         run: ./mvnw clean package -DskipTests
 
-      # 6. Деплоим на Railwa
+      # 6. Деплоим на Railway
       - name: 🚀 Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
