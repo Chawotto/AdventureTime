@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Клонируем код
+      # 1. Клонируем кoд
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
