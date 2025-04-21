@@ -45,10 +45,10 @@ jobs:
         with:
           node-version: '16'
 
-      # 7. Устанавливаем Railway CLI (версия 3.5.2)
+      # 7. Устанавливаем Railway CLI (последняя версия)
       - name: 📦 Install Railway CLI
         run: |
-          npm install -g @railway/cli@3.5.2
+          npm install -g @railway/cli
           railway --version || echo "Version command not supported"
 
       # 8. Деплоим на Railway
@@ -58,5 +58,7 @@ jobs:
           RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
           echo "Service ID: $RAILWAY_SERVICE_ID"
+          echo "Railway Token: $RAILWAY_TOKEN"
+          railway login --token $RAILWAY_TOKEN
           railway whoami || echo "Whoami command failed"
           railway up --service $RAILWAY_SERVICE_ID
