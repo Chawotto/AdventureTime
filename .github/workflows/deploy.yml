@@ -10,18 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Клонируем репозиторий
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Устанавливаем Java 17
       - name: ☕ Setup Java 17
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 17
 
-      # 3. Кэшируем зависимости Maven
       - name: 💾 Cache Maven packages
         uses: actions/cache@v3
         with:
@@ -31,17 +28,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 4. Даем права на запуск mvnw
       - name: 🔓 Grant execute permission for mvnw
         run: chmod +x mvnw
 
-      # 5. Собираем проект через Maven
       - name: 🛠️ Build with Maven
         run: ./mvnw clean package -DskipTests
 
-      # 6. Деплоим на Railway через официальный CLI Action
       - name: 🚀 Deploy to Railway
-        uses: railwayapp/cli-action@v1.8.0
+        uses: railwayapp/cli-action@v1
         with:
           railwayToken: ${{ secrets.RAILWAY_TOKEN }}
           projectId: ${{ secrets.RAILWAY_PROJECT_ID }}
