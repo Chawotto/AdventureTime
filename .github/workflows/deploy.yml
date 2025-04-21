@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Клонируем репозиторий
+      # 1. Клонируем код
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
@@ -21,7 +21,7 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      # 3. Кэшируем Maven-пакеты
+      # 3. Кэшируем зависимости Maven
       - name: 💾 Cache Maven packages
         uses: actions/cache@v3
         with:
@@ -31,22 +31,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 4. Даем права на mvnw
+      # 4. Выдаём права на выполнение mvnw
       - name: 🔓 Grant execute permission for mvnw
         run: chmod +x mvnw
 
-      # 5. Собираем проект через Maven
+      # 5. Сборка проекта через Maven
       - name: 🛠️ Build with Maven
         run: ./mvnw clean package -DskipTests
 
-      # 6. Устанавливаем Railway CLI вручную
+      # 6. Устанавливаем Railway CLI
       - name: 📦 Install Railway CLI
         run: |
           curl -fsSL https://railway.app/install.sh | sh
 
-      # 7. Логинимся в Railway и деплоим
+      # 7. Логинимся и деплоим на Railway
       - name: 🚀 Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
         run: |
-          railway up --project ${{ secrets.RAILWAY_PROJECT_ID }}
+          railway up
