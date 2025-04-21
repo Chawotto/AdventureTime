@@ -1,4 +1,4 @@
-name: 🚀 Build and Deploy AdventureTime to Railway
+name: 🚀 Build and Deploy to Railway
 
 on:
   push:
@@ -8,12 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    container: ghcr.io/railwayapp/cli:latest  # Используем официальный контейнер Railway CLI
-    env:
-      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      SVC_ID: ${{ secrets.RAILWAY_SERVICE_ID }}  # Переименовал для краткости
     steps:
-      # 1. Клонируем код
+      # 1. Клонируем репозиторий
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
@@ -28,23 +24,22 @@ jobs:
       - name: 💾 Cache Maven packages
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.m2/repository
+          path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          restore-keys: ${{ runner.os }}-maven-
 
-      # 4. Выдаём права на выполнение mvnw
+      # 4. Даём права на выполнение mvnw
       - name: 🔓 Grant execute permission for mvnw
         run: chmod +x mvnw
 
-      # 5. Сборка проекта через Maven
+      # 5. Собираем проект с Maven
       - name: 🛠️ Build with Maven
         run: ./mvnw clean package -DskipTests
 
       # 6. Деплоим на Railway
       - name: 🚀 Deploy to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          SVC_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
-          echo "Service ID: $SVC_ID"
-          echo "Railway Token: $RAILWAY_TOKEN"
-          railway up --service $SVC_ID
+          docker run --rm -v $(pwd):/app -e RAILWAY_TOKEN=$RAILWAY_TOKEN -e SVC_ID=$SVC_ID ghcr.io/railwayapp/cli:latest railway up --service $SVC_ID
