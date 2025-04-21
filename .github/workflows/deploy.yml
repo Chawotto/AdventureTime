@@ -39,19 +39,23 @@ jobs:
       - name: 🛠️ Build with Maven
         run: ./mvnw clean package -DskipTests
 
-      # 6. Устанавливаем Railway CLI
+      # 6. Устанавливаем Node.js (для npm)
+      - name: 🌐 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # 7. Устанавливаем Railway CLI через npm
       - name: 📦 Install Railway CLI
         run: |
-          curl -fsSL https://railway.app/install.sh | sh
+          npm install -g @railway/cli
 
-      # 7. Логинимся и деплоим на Railway
+      # 8. Деплоим на Railway
       - name: 🚀 Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
           RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
+          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
-          echo "RAILWAY_TOKEN is set to: $RAILWAY_TOKEN"
-          echo "RAILWAY_PROJECT_ID is set to: $RAILWAY_PROJECT_ID"
-          railway version
           railway link $RAILWAY_PROJECT_ID
-          railway up
+          railway up --service $RAILWAY_SERVICE_ID
