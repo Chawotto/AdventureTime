@@ -104,8 +104,6 @@ AdventureTime Management System — это веб-приложение, разр
   
 <img width="3071" height="902" alt="Снимок экрана 2025-09-05 185516" src="https://github.com/user-attachments/assets/6b65b235-c880-43b5-ae28-f25dd686982b" />
   1. Главное меню приложения
-    
-<img width="993" height="620" alt="Снимок экрана 2025-09-05 185524" src="https://github.com/user-attachments/assets/e4d3fe43-a1a4-4c7a-a4d7-f2c936b68642" />
 
 <img width="1122" height="763" alt="Снимок экрана 2025-09-05 185528" src="https://github.com/user-attachments/assets/e0041b9d-85df-45cc-b23f-5abb2beeaef9" />
   2. Интерфейс добавления туров
