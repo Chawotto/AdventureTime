@@ -101,16 +101,29 @@ AdventureTime Management System — это веб-приложение, разр
   - **Измерение:** Интерфейс должен корректно отображаться на разрешениях от 1280x720 (HD) до 1920x1080 (FullHD) пикселей.
 
  # Мокапы
-  
-<img width="3071" height="902" alt="Снимок экрана 2025-09-05 185516" src="https://github.com/user-attachments/assets/6b65b235-c880-43b5-ae28-f25dd686982b" />
-  1. Главное меню приложения
 
-<img width="1122" height="763" alt="Снимок экрана 2025-09-05 185528" src="https://github.com/user-attachments/assets/e0041b9d-85df-45cc-b23f-5abb2beeaef9" />
-  2. Интерфейс добавления туров
-  
-<img width="1052" height="831" alt="Снимок экрана 2025-09-05 185537" src="https://github.com/user-attachments/assets/a2f07d5c-eaa8-4e45-bb5e-3ab6fe679814" />
-  3. Интерфейс добавления стран
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6b65b235-c880-43b5-ae28-f25dd686982b" width="70%" />
+  <br/>
+  <strong>1. Главное меню приложения</strong>
+</p>
 
-<img width="1053" height="683" alt="Снимок экрана 2025-09-05 185546" src="https://github.com/user-attachments/assets/95fe0162-c6ff-4a55-a98e-80f3baa9399e" />
-  4. Интерфейс добавления транспорта
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e0041b9d-85df-45cc-b23f-5abb2beeaef9" width="60%" />
+  <br/>
+  <strong>2. Интерфейс добавления туров</strong>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a2f07d5c-eaa8-4e45-bb5e-3ab6fe679814" width="60%" />
+  <br/>
+  <strong>3. Интерфейс добавления стран</strong>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/95fe0162-c6ff-4a55-a98e-80f3baa9399e" width="60%" />
+  <br/>
+  <strong>4. Интерфейс добавления транспорта</strong>
+</p>
+
 
