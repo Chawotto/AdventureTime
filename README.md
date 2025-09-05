@@ -103,13 +103,13 @@ AdventureTime Management System — это веб-приложение, разр
  # Мокапы
   
  <img width="3071" height="902" alt="Снимок экрана 2025-09-05 185516" src="https://github.com/user-attachments/assets/6b65b235-c880-43b5-ae28-f25dd686982b" />
-  1. Главное меню приложения
+                                                            1. Главное меню приложения
 <img width="993" height="620" alt="Снимок экрана 2025-09-05 185524" src="https://github.com/user-attachments/assets/e4d3fe43-a1a4-4c7a-a4d7-f2c936b68642" />
-  2. Интерфейс добавления туров
+                                                            2. Интерфейс добавления туров
 <img width="1122" height="763" alt="Снимок экрана 2025-09-05 185528" src="https://github.com/user-attachments/assets/e0041b9d-85df-45cc-b23f-5abb2beeaef9" />
-  4. Интерфейс добавления стран
+                                                            3. Интерфейс добавления стран
 <img width="1052" height="831" alt="Снимок экрана 2025-09-05 185537" src="https://github.com/user-attachments/assets/a2f07d5c-eaa8-4e45-bb5e-3ab6fe679814" />
-  4. Интерфейс добавления транспорта
+                                                            4. Интерфейс добавления транспорта
 <img width="1053" height="683" alt="Снимок экрана 2025-09-05 185546" src="https://github.com/user-attachments/assets/95fe0162-c6ff-4a55-a98e-80f3baa9399e" />
 
 
