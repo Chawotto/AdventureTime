@@ -102,14 +102,16 @@ AdventureTime Management System — это веб-приложение, разр
 
  # Мокапы
   
- <img width="3071" height="902" alt="Снимок экрана 2025-09-05 185516" src="https://github.com/user-attachments/assets/6b65b235-c880-43b5-ae28-f25dd686982b" />
-                                                            1. Главное меню приложения
-<img width="993" height="620" alt="Снимок экрана 2025-09-05 185524" src="https://github.com/user-attachments/assets/e4d3fe43-a1a4-4c7a-a4d7-f2c936b68642" />
-                                                            2. Интерфейс добавления туров
-<img width="1122" height="763" alt="Снимок экрана 2025-09-05 185528" src="https://github.com/user-attachments/assets/e0041b9d-85df-45cc-b23f-5abb2beeaef9" />
-                                                            3. Интерфейс добавления стран
-<img width="1052" height="831" alt="Снимок экрана 2025-09-05 185537" src="https://github.com/user-attachments/assets/a2f07d5c-eaa8-4e45-bb5e-3ab6fe679814" />
-                                                            4. Интерфейс добавления транспорта
-<img width="1053" height="683" alt="Снимок экрана 2025-09-05 185546" src="https://github.com/user-attachments/assets/95fe0162-c6ff-4a55-a98e-80f3baa9399e" />
+![Главное меню приложения](https://github.com/user-attachments/assets/6b65b235-c880-43b5-ae28-f25dd686982b)
+<div style="text-align: center;"><strong style="font-size: 1.2em;">1. Главное меню приложения</strong></div>
+
+![Интерфейс добавления туров](https://github.com/user-attachments/assets/e4d3fe43-a1a4-4c7a-a4d7-f2c936b68642)
+<div style="text-align: center;"><strong style="font-size: 1.2em;">2. Интерфейс добавления туров</strong></div>
+
+![Интерфейс добавления стран](https://github.com/user-attachments/assets/e0041b9d-85df-45cc-b23f-5abb2beeaef9)
+<div style="text-align: center;"><strong style="font-size: 1.2em;">3. Интерфейс добавления стран</strong></div>
+
+![Интерфейс добавления транспорта](https://github.com/user-attachments/assets/a2f07d5c-eaa8-4e45-bb5e-3ab6fe679814)
+<div style="text-align: center;"><strong style="font-size: 1.2em;">4. Интерфейс добавления транспорта</strong></div>
 
 
